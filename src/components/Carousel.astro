@@ -1,0 +1,117 @@
+---
+import imgDiscussions from "../assets/img/carousel_discussions.webp";
+import imgExercices from "../assets/img/carousel_ex.webp";
+import imgMoodtracker from "../assets/img/carousel_moodtracker.webp";
+import imgNumero from "../assets/img/carousel_numero.webp";
+import imgTemoignage from "../assets/img/carousel_temoignages.webp";
+
+const images = [
+    imgDiscussions,
+    imgExercices,
+    imgMoodtracker,
+    imgNumero,
+    imgTemoignage,
+];
+---
+
+<style>
+    .carousel {
+        position: relative;
+        overflow: hidden;
+        width: 900px;
+        height: auto; /* Hauteur du carrousel */
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+        min-width: 100%; /* Chaque image prend 100% de l'espace du carrousel */
+        flex-shrink: 0;
+        object-fit: contain; /* Assure que les images sont bien contenues sans déformation */
+        height: auto; /* Ajuste la hauteur automatiquement selon le ratio de l'image */
+        transition:
+            transform 0.5s ease-in-out,
+            transform 0.3s ease-in-out;
+    }
+
+    /* Animation pour agrandir l'image active */
+    .carousel-slide.active {
+        transform: scale(1.1); /* L'image active sera légèrement plus grande */
+    }
+
+    /* Les images non actives seront plus petites */
+    .carousel-slide:not(.active) {
+        transform: scale(
+            0.9
+        ); /* Les autres images sont légèrement plus petites */
+    }
+
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.4);
+        border: none;
+        color: white;
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .carousel-btn-left {
+        left: 10px;
+    }
+
+    .carousel-btn-right {
+        right: 10px;
+    }
+</style>
+
+<div class="carousel">
+    <div class="carousel-track" id="carousel-track">
+        {
+            images.map((image) => (
+                <img
+                    src={image.src}
+                    alt="carousel image"
+                    class="carousel-slide"
+                    loading="lazy"
+                />
+            ))
+        }
+    </div>
+
+    <button class="carousel-btn carousel-btn-left" onclick="prevSlide()"
+        >‹</button
+    >
+    <button class="carousel-btn carousel-btn-right" onclick="nextSlide()"
+        >›</button
+    >
+
+    <script is:inline>
+        let index = 0;
+        const track = document.getElementById("carousel-track");
+        const total = track.children.length;
+
+        function updateSlide() {
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function prevSlide() {
+            index = (index - 1 + total) % total;
+            updateSlide();
+        }
+
+        function nextSlide() {
+            index = (index + 1) % total;
+            updateSlide();
+        }
+
+        // Optionnel : lancer automatiquement
+        // setInterval(() => nextSlide(), 5000);
+    </script>
+</div>
