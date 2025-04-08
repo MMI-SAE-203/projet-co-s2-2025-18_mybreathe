@@ -6,7 +6,11 @@ import Carousel from "../../components/Carousel.astro";
 <Layout>
     <div class="bg-[#06064F] text-white">
         <div class="flex flex-col items-center justify-center h-screen">
-            <img class="w-200" src="/src/assets/img/acceuil_personnage1.svg" alt="" />
+            <img
+                class="w-200"
+                src="/src/assets/img/acceuil_personnage1.svg"
+                alt=""
+            />
             <h1 class="text-4xl font-bold">2BeBetter</h1>
         </div>
 
@@ -41,7 +45,21 @@ import Carousel from "../../components/Carousel.astro";
 
         <div>
             <p>Ce que nous proposons :</p>
+        </div>
+        <div>
             <Carousel />
+        </div>
+
+        <div>
+            <p>Qui sommes nous ?</p>
+        </div>
+
+        <div>
+            <img class="w-auto h-150" src="/src/assets/img/equipe.webp" alt="">
+        </div>
+
+        <div>
+            <p>FAQ</p>
         </div>
     </div>
 </Layout>
