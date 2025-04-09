@@ -18,8 +18,8 @@ const images = [
     .carousel {
         position: relative;
         overflow: hidden;
-        width: 900px;
-        height: auto; /* Hauteur du carrousel */
+        width: 600px;
+        height: auto; 
     }
 
     .carousel-track {
@@ -28,25 +28,23 @@ const images = [
     }
 
     .carousel-slide {
-        min-width: 100%; /* Chaque image prend 100% de l'espace du carrousel */
+        min-width: 100%;
         flex-shrink: 0;
-        object-fit: contain; /* Assure que les images sont bien contenues sans déformation */
-        height: auto; /* Ajuste la hauteur automatiquement selon le ratio de l'image */
+        object-fit: contain; 
+        height: auto;
         transition:
             transform 0.5s ease-in-out,
             transform 0.3s ease-in-out;
     }
 
-    /* Animation pour agrandir l'image active */
     .carousel-slide.active {
-        transform: scale(1.1); /* L'image active sera légèrement plus grande */
+        transform: scale(1.1);
     }
 
-    /* Les images non actives seront plus petites */
     .carousel-slide:not(.active) {
         transform: scale(
             0.9
-        ); /* Les autres images sont légèrement plus petites */
+        );
     }
 
     .carousel-btn {
@@ -111,7 +109,5 @@ const images = [
             updateSlide();
         }
 
-        // Optionnel : lancer automatiquement
-        // setInterval(() => nextSlide(), 5000);
     </script>
 </div>
