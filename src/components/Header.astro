@@ -3,23 +3,31 @@
 ---
 
 <header class="flex items-center justify-between p-4 text-white">
-    <div class="flex items-center">
+    <div>
         <a href="/accueil">logo</a>
     </div>
-    <button
-        id="menu-btn"
-        class="group relative z-10 flex h-3 w-6 flex-col justify-between lg:hidden *:block *:ease *:h-0.5 *:w-full *:transform *:rounded-full *:bg-white *:transition *:duration-300"
-        aria-label="Menu"
-        aria-controls="menu"
-        aria-expanded="false"
-    >
-        <span
-            class="group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45"
-        ></span>
-        <span
-            class="group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45"
-        ></span>
-    </button>
+
+    <div class="flex items-center gap-4 lg:hidden">
+        <a href="/connexion" aria-label="Connexion">
+           <img src="/src/assets/icones/connexion.svg" alt="Icone Connexion" />
+        </a>
+
+        <button
+            id="menu-btn"
+            class="group relative z-10 flex h-3 w-6 flex-col justify-between *:block *:ease *:h-0.5 *:w-full *:transform *:rounded-full *:bg-white *:transition *:duration-300"
+            aria-label="Menu"
+            aria-controls="menu"
+            aria-expanded="false"
+        >
+            <span
+                class="group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45"
+            ></span>
+            <span
+                class="group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45"
+            ></span>
+        </button>
+    </div>
+
     <nav
         id="menu"
         class="flex-1 px-6 py-12 flex justify-between mt-20 flex-col fixed z-10 inset-0 bg-[#2B1737] visible opacity-100 max-lg:aria-hidden:invisible max-lg:aria-hidden:opacity-0 lg:mt-0 lg:flex-row lg:static lg:bg-transparent lg:py-6 lg:visible lg:opacity-100"
@@ -29,38 +37,32 @@
             <li>
                 <a
                     class="block p-4 rounded-lg text-white lg:hover:text-[#FCB2D8] lg:hover:underline lg:hover:text-xl lg:transition-all duration-300"
-                    href="/discussions">Discussions</a
-                >
+                    href="/discussions">Discussions</a>
             </li>
             <li>
                 <a
                     class="block p-4 rounded-lg text-white lg:hover:text-[#FCB2D8] lg:hover:underline lg:hover:text-xl lg:transition-all duration-300"
-                    href="/moodtracker">Moodtracker</a
-                >
+                    href="/moodtracker">Moodtracker</a>
             </li>
             <li>
                 <a
                     class="block p-4 rounded-lg text-white lg:hover:text-[#FCB2D8] lg:hover:underline lg:hover:text-xl lg:transition-all duration-300"
-                    href="/urgence">Urgence</a
-                >
+                    href="/urgence">Urgence</a>
             </li>
             <li>
                 <a
                     class="block p-4 rounded-lg text-white lg:hover:text-[#FCB2D8] lg:hover:underline lg:hover:text-xl lg:transition-all duration-300"
-                    href="/exercices">Coin détente</a
-                >
+                    href="/exercices">Coin détente</a>
             </li>
             <li>
                 <a
                     class="block p-4 rounded-lg text-white lg:hover:text-[#FCB2D8] lg:hover:underline lg:hover:text-xl lg:transition-all duration-300"
-                    href="/temoignages">Témoignages</a
-                >
+                    href="/temoignages">Témoignages</a>
             </li>
             <li>
                 <a
                     class="block p-4 rounded-lg text-white lg:hover:text-[#FCB2D8] lg:hover:underline lg:hover:text-xl lg:transition-all duration-300"
-                    href="/connexion">Connexion</a
-                >
+                    href="/connexion">Connexion</a>
             </li>
         </ul>
     </nav>
