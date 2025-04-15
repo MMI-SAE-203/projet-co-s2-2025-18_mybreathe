@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-    --font-Montserrat: 'Montserrat', sans-serif;
-    --font-Nunito: : 'Nunito', sans-serif;
+    --font-Montserrat: 'Montserrat Variable', sans-serif;
+    --font-Nunito: : 'Nunito Variable', sans-serif;
 }
 
 @layer base {
     h1 {
         @apply font-Montserrat text-5xl;
     }
-    body{
+
+    body {
         @apply font-Nunito;
     }
 }
