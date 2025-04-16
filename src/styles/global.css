@@ -5,6 +5,12 @@
     --font-Nunito: : 'Nunito Variable', sans-serif;
 }
 
+@layer components {
+    .noscroll {
+        overflow: hidden;
+    }
+}
+
 @layer base {
     h1 {
         @apply font-Montserrat font-semibold text-4xl align-middle text-center m-9;
@@ -15,6 +21,6 @@
     }
 
     body {
-        @apply font-Nunito;
+        @apply font-Nunito text-lg;
     }
 }
