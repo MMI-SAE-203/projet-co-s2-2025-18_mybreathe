@@ -36,33 +36,46 @@ import "../styles/global.css";
 			</p>
 			<p>
 				Nous sommes un site qui ne se contente pas d’informer, mais qui
-				accompagne vraiment la victime avec des outils interactifs et un
-				espace rassurant.
+				<span class="font-bold text-[#FCB2D8]">accompagne</span> vraiment
+				la victime avec des <span class="font-bold text-[#FCB2D8]"
+					>outils interactifs</span
+				> et un <span class="font-bold text-[#FCB2D8]"
+					>espace rassurant</span
+				>.
 			</p>
 		</div>
 
 		<div>
 			<p>
-				Aujourd’hui, le harcèlement est partout : dans les écoles, sur
-				les réseaux sociaux, au travail… Il touche des millions de
-				personnes et laisse des blessures profondes.
+				Aujourd’hui, le harcèlement est <span
+					class="font-bold text-[#FCB2D8]">partout</span
+				> : dans les écoles, sur les réseaux sociaux, au travail… Il touche
+				des <span class="font-bold text-[#FCB2D8]"
+					>millions de personnes</span
+				> et laisse des <span class="font-bold text-[#FCB2D8]"
+					>blessures profondes</span
+				>.
 			</p>
 			<p>
-				Malgré les campagnes de sensibilisation, le harcèlement continue
-				de se banaliser, plongeant trop de victimes dans la solitude et
-				l’angoisse.
+				Malgré les <span class="font-bold text-[#FCB2D8]"
+					>campagnes de sensibilisation</span
+				>, le harcèlement continue de se <span
+					class="font-bold text-[#FCB2D8]">banaliser</span
+				>, plongeant trop de victimes dans la <span
+					class="font-bold text-[#FCB2D8]">solitude</span
+				> et <span class="font-bold text-[#FCB2D8]">l’angoisse</span>.
 			</p>
 		</div>
 
 		<div>
-			<p>Ce que nous proposons :</p>
+			<p class="text-2xl font-bold mb-8 mt-20">Ce que nous proposons :</p>
 		</div>
 		<div class="lg:max-w-[600px] w-full mx-auto">
 			<Carousel />
 		</div>
 
 		<div>
-			<p>Qui sommes nous ?</p>
+			<p class="text-2xl font-bold mb-8 mt-20">Qui sommes nous ?</p>
 		</div>
 
 		<div>
@@ -73,8 +86,8 @@ import "../styles/global.css";
 			/>
 		</div>
 
-		<div>
-			<p>FAQ</p>
+		<div class="my-20">
+			<p class="text-2xl font-bold mb-8">FAQ</p>
 			<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer
 			></script>
 			<div
@@ -269,20 +282,25 @@ import "../styles/global.css";
 		</div>
 
 		<div>
-			<p>
+			<p
+				class="text-2xl text-[#FCB2D8] font-bold my-20 text-center lg:text-3xl"
+			>
 				Ensemble, agissons contre le harcèlement. Rejoignez-nous sur
 				2BeBetter !
 			</p>
 		</div>
 
-		<div>
+		<div
+			class="flex flex-col items-center justify-center my-20 border-white border-2 rounded-2xl p-2 mx-10 lg:mx-70"
+		>
 			<a href="/accueil">ACCÉDER AU SITE</a>
 		</div>
 
 		<div>
 			<p>
 				Si vous avez des questions sur notre plateforme, vous pouvez
-				nous contacter en remplissant ce formulaire.
+				nous <span class="font-bold text-[#FCB2D8]">contacter</span> en remplissant
+				ce <span class="font-bold text-[#FCB2D8]">formulaire</span>.
 			</p>
 		</div>
 
@@ -290,14 +308,27 @@ import "../styles/global.css";
 			<FormContact />
 		</div>
 
-		<div>
-			<p>Nos coordonnées :</p>
-			<p>Adresse postale :</p>
-			<p>4 Place Lucien Tharradin, 25200 Montbéliard</p>
-			<p>Adresse mail :</p>
-			<p>contact-2bebetter@gmail.com</p>
-			<p>Téléphone :</p>
-			<p>03.12.34.56.78</p>
+		<div class="my-20">
+			<p class="font-bold">Nos coordonnées :</p>
+
+			<div
+				class="mt-10 flex flex-col lg:flex-row lg:justify-between lg:items-center lg:mx-20"
+			>
+				<div class="flex flex-col mb-8 lg:items-center">
+					<p class="font-bold text-[#FCB2D8]">Adresse postale :</p>
+					<p>4 Place Lucien Tharradin, 25200 Montbéliard</p>
+				</div>
+
+				<div class="flex flex-col mb-8 lg:items-center">
+					<p class="font-bold text-[#FCB2D8]">Adresse mail :</p>
+					<p>contact-2bebetter@gmail.com</p>
+				</div>
+
+				<div class="flex flex-col mb-8 lg:items-center">
+					<p class="font-bold text-[#FCB2D8]">Téléphone :</p>
+					<p>03.12.34.56.78</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </Layout>
