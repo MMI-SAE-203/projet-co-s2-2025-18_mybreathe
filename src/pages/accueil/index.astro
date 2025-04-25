@@ -3,5 +3,81 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout>
+    <div
+        class="flex flex-col-reverse lg:flex-row items-center justify-center h-screen my-20 gap-8 text-center lg:text-left"
+    >
+        <h1 class="text-6xl font-bold">2BeBetter</h1>
+        <img
+            class="max-w-170"
+            src="/src/assets/img/acceuil_personnage1.svg"
+            alt=""
+        />
+    </div>
 
+    <div>
+        <h2 class="text-[36px] font-bold mb-8">
+            Bienvenue sur <span class="text-[#FCB2D8]">2BeBetter</span>,
+        </h2>
+
+        <p class="mb-8">
+            une <span class="font-bold text-[#FCB2D8]"
+                >plateforme d'entraide</span
+            > pour les personnes victimes de <span
+                class="font-bold text-[#FCB2D8]">harcèlement</span
+            > sous toutes ses formes : moral, physique, scolaire, de rue, au travail,
+            sexuel ou en ligne.<br />
+            Son objectif est d’offrir un <span class="font-bold text-[#FCB2D8]"
+                >espace sûr</span
+            > où chacun peut s’exprimer librement et trouver du <span
+                class="font-bold text-[#FCB2D8]">soutien</span
+            >…
+        </p>
+        <p>
+            Nous sommes un site qui ne se contente pas d’informer, mais qui
+            <span class="font-bold text-[#FCB2D8]">accompagne</span> vraiment la
+            victime avec des <span class="font-bold text-[#FCB2D8]"
+                >outils interactifs</span
+            > et un <span class="font-bold text-[#FCB2D8]"
+                >espace rassurant</span
+            >.
+        </p>
+    </div>
+
+    <div class="my-20">
+        <h2 class="text-[36px] font-bold">Fonctionnalités</h2>
+        <hr class="border-t-2 border-white-300" />
+    </div>
+
+    <div class="my-20 flex justify-center">
+        <a href="/moodtracker" aria-label="moodtracker">
+            <img
+                src="/src/assets/icones/accueil_moodtracker.svg"
+                alt="tableau moodtracker"
+            />
+        </a>
+    </div>
+
+    <div
+        class="bg-white h-screen flex flex-col items-center justify-between p-10"
+    >
+        <div class="text-center">
+            <h3 class="text-[#06064F]">Besoin de se sentir mieux ?</h3>
+            <p class="font-semibold text-[#06064F]">
+                si oui, accédez à notre...
+            </p>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-4 mt-8">
+            <a
+                href="/detente"
+                class="inline-block bg-[#FCB2D8] text-[#06064F] font-bold px-4 py-2 rounded-full"
+            >
+                COIN DÉTENTE
+            </a>
+            <img
+                src="/src/assets/img/exercices_respiration_accueil.webp"
+                alt="Personnage qui médite"
+                class="w-24 h-auto sm:w-32 sm:h-auto"
+            />
+        </div>
+    </div>
 </Layout>
