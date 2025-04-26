@@ -13,7 +13,7 @@ if (Astro.request.method === "POST") {
 ---
 
 <Layout>
-    <h1 class="m-20 text-[#FCB2D8]">Ajouter une humeur</h1>
+    <h1>Ajouter une humeur</h1>
     {message && <p class="text-gray-400 mx-6">{message}</p>}
     <form action="/moodtracker/add" method="POST" enctype="multipart/form-data">
         <select
@@ -29,13 +29,25 @@ if (Astro.request.method === "POST") {
             <option value="😢Triste">😢Triste</option>
         </select>
 
-        <button
-            class="bg-[#FCB2D8] text-[#06064F] px-4 py-2 rounded shadow mx-6"
-            type="submit">Ajouter</button
-        >
-        <a
-            class="bg-gray-700 text-white px-4 py-2 rounded shadow mx-6"
-            href="/moodtracker">Retour au Moodtracker</a
-        >
+        <div class="my-5">
+            <button
+                class="bg-[#FCB2D8] text-[#06064F] px-4 py-2 rounded shadow mx-6"
+                type="submit">Ajouter</button
+            >
+        </div>
+
+        <div class="my-10">
+            <a
+                class="bg-gray-700 text-white px-4 py-2 rounded shadow mx-6"
+                href="/moodtracker">Retour au Moodtracker</a
+            >
+        </div>
+
+        <div class="my-10">
+            <a
+                class="bg-[#FCB2D8] text-[#06064F] px-4 py-2 rounded shadow mx-6"
+                href="/moodtracker/historique">Accéder à mon historique</a
+            >
+        </div>
     </form>
 </Layout>

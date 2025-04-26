@@ -25,3 +25,9 @@ export async function addMood(formData) {
         };
     }
 }
+
+// Fonction pour récupérer les humeurs
+export async function allHumeurs() {
+    const allRecords = await pb.collection('moodtracker').getFullList();
+    return allRecords;
+}
