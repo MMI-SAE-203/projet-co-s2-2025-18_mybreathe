@@ -1,0 +1,41 @@
+---
+import { addMood } from "../../scripts/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+
+let message = "";
+
+if (Astro.request.method === "POST") {
+    const formData = await Astro.request.formData();
+    const response = await addMood(formData);
+    message = response.message;
+}
+---
+
+<Layout>
+    <h1 class="m-20 text-[#FCB2D8]">Ajouter une humeur</h1>
+    {message && <p class="text-gray-400 mx-6">{message}</p>}
+    <form action="/moodtracker/add" method="POST" enctype="multipart/form-data">
+        <select
+            name="humeur"
+            required
+            class="w-full mt-2 p-2 border border-gray-300 rounded-md m-6 max-w-80"
+        >
+            <option value="">Choisissez votre humeur</option>
+            <option value="😁Heureux">😁Heureux</option>
+            <option value="😕Déçu">😕Déçu</option>
+            <option value="😰Anxieux">😰Anxieux</option>
+            <option value="😧Peureux">😧Peureux</option>
+            <option value="😢Triste">😢Triste</option>
+        </select>
+
+        <button
+            class="bg-[#FCB2D8] text-[#06064F] px-4 py-2 rounded shadow mx-6"
+            type="submit">Ajouter</button
+        >
+        <a
+            class="bg-gray-700 text-white px-4 py-2 rounded shadow mx-6"
+            href="/moodtracker">Retour au Moodtracker</a
+        >
+    </form>
+</Layout>
