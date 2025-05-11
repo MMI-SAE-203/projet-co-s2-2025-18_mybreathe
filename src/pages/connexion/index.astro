@@ -3,4 +3,149 @@ import Layout from "../../layouts/Layout.astro";
 import "../../styles/global.css";
 ---
 
-<Layout />
+<Layout>
+    <body
+        class="min-h-screen flex items-center justify-center bg-[#0A0A46] font-sans px-4"
+    >
+        <div class="w-full max-w-sm sm:max-w-md px-4 sm:px-6 py-6 sm:py-10">
+            <h1
+                class="text-2xl sm:text-3xl font-extrabold text-white text-center mb-4 sm:mb-6"
+            >
+                CONNEXION / INSCRIPTION
+            </h1>
+
+            <!-- Onglets -->
+            <div
+                class="flex justify-between text-white mb-6 border-b border-white/30"
+            >
+                <button
+                    id="tab-inscription"
+                    class="w-1/2 text-sm sm:text-base py-2 border-b-2 border-transparent"
+                >
+                    inscription
+                </button>
+                <button
+                    id="tab-connexion"
+                    class="w-1/2 text-sm sm:text-base py-2 border-b-2 border-blue-400 font-semibold"
+                >
+                    connexion
+                </button>
+            </div>
+
+            <!-- Formulaire Connexion -->
+            <form id="form-connexion" class="space-y-4 sm:space-y-5">
+                <div class="relative">
+                    <input
+                        type="text"
+                        placeholder="exemple.1"
+                        class="w-full pl-10 pr-4 py-2 rounded-full bg-white/10 text-white placeholder-white/60 border border-white/30"
+                    />
+                </div>
+                <div class="relative">
+                    <input
+                        type="password"
+                        placeholder="••••••••"
+                        class="w-full pl-10 pr-10 py-2 rounded-full bg-white/10 text-white placeholder-white/60 border border-white/30"
+                    />
+                </div>
+                <button
+                    type="submit"
+                    class="w-full py-2 rounded-full bg-pink-300 text-blue-900 font-bold"
+                    >Connexion</button
+                >
+            </form>
+
+            <!-- Formulaire Inscription -->
+            <form id="form-inscription" class="space-y-4 sm:space-y-5 hidden">
+                <div class="space-y-2 text-white text-sm">
+                    <label
+                        ><input type="checkbox" class="mr-2" />Je suis
+                        harcelé(e)</label
+                    ><br />
+                    <label
+                        ><input type="checkbox" class="mr-2" />Je pense harceler
+                        une personne</label
+                    >
+                </div>
+                <div class="relative">
+                    <input
+                        type="text"
+                        placeholder="exemple.1"
+                        class="w-full pl-10 pr-4 py-2 rounded-full bg-white/10 text-white placeholder-white/60 border border-white/30"
+                    />
+                </div>
+                <div class="relative">
+                    <input
+                        type="email"
+                        placeholder="exemple@ex.com"
+                        class="w-full pl-10 pr-4 py-2 rounded-full bg-white/10 text-white placeholder-white/60 border border-white/30"
+                    />
+                </div>
+                <div class="relative">
+                    <input
+                        type="password"
+                        placeholder="••••••••"
+                        class="w-full pl-10 pr-10 py-2 rounded-full bg-white/10 text-white placeholder-white/60 border border-white/30"
+                    />
+                </div>
+                <div class="relative">
+                    <input
+                        type="password"
+                        placeholder="••••••••"
+                        class="w-full pl-10 pr-10 py-2 rounded-full bg-white/10 text-white placeholder-white/60 border border-white/30"
+                    />
+                </div>
+                <button
+                    type="submit"
+                    class="w-full py-2 rounded-full bg-pink-300 text-blue-900 font-bold"
+                    >Inscription</button
+                >
+            </form>
+        </div>
+
+        <!-- JS placé à la fin -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const btnConnexion = document.getElementById("tab-connexion");
+                const btnInscription =
+                    document.getElementById("tab-inscription");
+                const formConnexion = document.getElementById("form-connexion");
+                const formInscription =
+                    document.getElementById("form-inscription");
+
+                function switchToConnexion() {
+                    formConnexion.classList.remove("hidden");
+                    formInscription.classList.add("hidden");
+                    btnConnexion.classList.add(
+                        "border-blue-400",
+                        "font-semibold",
+                    );
+                    btnInscription.classList.remove(
+                        "border-blue-400",
+                        "font-semibold",
+                    );
+                    btnConnexion.classList.remove("border-transparent");
+                    btnInscription.classList.add("border-transparent");
+                }
+
+                function switchToInscription() {
+                    formConnexion.classList.add("hidden");
+                    formInscription.classList.remove("hidden");
+                    btnInscription.classList.add(
+                        "border-blue-400",
+                        "font-semibold",
+                    );
+                    btnConnexion.classList.remove(
+                        "border-blue-400",
+                        "font-semibold",
+                    );
+                    btnInscription.classList.remove("border-transparent");
+                    btnConnexion.classList.add("border-transparent");
+                }
+
+                btnConnexion.addEventListener("click", switchToConnexion);
+                btnInscription.addEventListener("click", switchToInscription);
+            });
+        </script>
+    </body>
+</Layout>

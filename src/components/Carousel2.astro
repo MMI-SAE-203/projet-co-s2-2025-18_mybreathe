@@ -1,0 +1,635 @@
+---
+import imgDiscussions from "../assets/img/carousel_discussions.webp";
+import imgExercices from "../assets/img/carousel_ex.webp";
+import imgMoodtracker from "../assets/img/carousel_moodtracker.webp";
+import imgNumero from "../assets/img/carousel_numero.webp";
+import imgTemoignage from "../assets/img/carousel_temoignages.webp";
+
+const images = [
+    imgDiscussions,
+    imgExercices,
+    imgMoodtracker,
+    imgNumero,
+    imgTemoignage,
+];
+---
+
+<style>
+    .carousel2 {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: auto;
+    }
+
+    .carousel2-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+    }
+
+    .carousel2-slide {
+        min-width: 100%;
+        flex-shrink: 0;
+        object-fit: contain;
+        height: auto;
+        transition:
+            transform 0.5s ease-in-out,
+            transform 0.3s ease-in-out;
+    }
+
+    .carousel2-slide.active {
+        transform: scale(1.1);
+    }
+
+    .carousel2-slide:not(.active) {
+        transform: scale(0.9);
+    }
+
+    .carousel2-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.4);
+        border: none;
+        color: white;
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .carousel2-btn-left {
+        left: 10px;
+    }
+
+    .carousel2-btn-right {
+        right: 10px;
+    }
+</style>
+
+<div class="carousel2">
+    <div class="carousel2-track" id="carousel2-track">
+        <div class="carousel2-slide">
+            <div
+                class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
+                onclick="toggleCard(this)"
+            >
+                <div class="flex w-full h-full">
+                    <div
+                        class="bg-[#7096D1] text-white p-6 w-1/2 relative z-10 flex flex-col justify-center default-content transition-all duration-300"
+                    >
+                        <h3 class="text-xl font-bold z-20">
+                            Respiration ancrée
+                        </h3>
+                        <p class="text-sm mt-2 z-20">
+                            Idéal pour calmer rapidement le système nerveux.
+                        </p>
+
+                        <div
+                            class="absolute top-2 left-3 text-[100px] font-extrabold text-transparent z-0 leading-none"
+                            style="-webkit-text-stroke: 2px white; opacity: 0.3;"
+                        >
+                            1
+                        </div>
+                    </div>
+
+                    <div class="w-1/2 image-part transition-all duration-300">
+                        <img
+                            src="../assets/img/img1-respiration.jpg"
+                            alt="Femme en méditation"
+                            class="h-full w-full object-cover"
+                        />
+                    </div>
+                </div>
+
+                <div
+                    class="absolute inset-0 bg-[#7096D1] text-white p-6 z-20 hidden clicked-content flex flex-col justify-center text-sm space-y-2"
+                >
+                    <p>
+                        Inspirez profondément par le nez en comptant jusqu'à <span
+                            class="text-pink-300 font-bold">3</span
+                        >.
+                    </p>
+                    <p>
+                        Retenez votre souffle <span
+                            class="text-pink-300 font-bold">3 secondes</span
+                        >.
+                    </p>
+                    <p>
+                        Expirez lentement par la bouche en comptant jusqu'à <span
+                            class="text-pink-300 font-bold">6</span
+                        >.
+                    </p>
+                    <p>
+                        Répétez pendant <span class="text-pink-300 font-bold"
+                            >1 à 2 minutes</span
+                        > jusqu'à ressentir un apaisement.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel2-slide">
+            <div
+                class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
+                onclick="toggleCard(this)"
+            >
+                <div class="flex w-full h-full">
+                    <div
+                        class="bg-[#7096D1] text-white p-6 w-1/2 relative z-10 flex flex-col justify-center default-content transition-all duration-300"
+                    >
+                        <h3 class="text-xl font-bold z-20">
+                            Respiration synchronisée avec un geste
+                        </h3>
+                        <p class="text-sm mt-2 z-20">
+                            Associer la respiration à un mouvement peut aider à
+                            se recentrer.
+                        </p>
+
+                        <div
+                            class="absolute top-2 left-3 text-[100px] font-extrabold text-transparent z-0 leading-none"
+                            style="-webkit-text-stroke: 2px white; opacity: 0.3;"
+                        >
+                            2
+                        </div>
+                    </div>
+
+                    <div class="w-1/2 image-part transition-all duration-300">
+                        <img
+                            src="../assets/img/img2-respiration.jpg"
+                            alt="Femme en méditation"
+                            class="h-full w-full object-cover"
+                        />
+                    </div>
+                </div>
+
+                <div
+                    class="absolute inset-0 bg-[#7096D1] text-white p-6 z-20 hidden clicked-content flex flex-col justify-center text-sm space-y-2"
+                >
+                    <p>
+                        <span class="text-pink-300 font-bold">Inspirez</span> profondément
+                        en ouvrant légèrement les mains.
+                    </p>
+                    <p>
+                        <span class="text-pink-300 font-bold">Expirez</span> lentement
+                        en refermant doucement les mains.
+                    </p>
+                    <p>
+                        Imaginez que vous relâchez la tension à chaque <span
+                            class="text-pink-300 font-bold">expiration</span
+                        >.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel2-slide">
+            <div
+                class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
+                onclick="toggleCard(this)"
+            >
+                <div class="flex w-full h-full">
+                    <div
+                        class="bg-[#7096D1] text-white p-6 w-1/2 relative z-10 flex flex-col justify-center default-content transition-all duration-300"
+                    >
+                        <h3 class="text-xl font-bold z-20">
+                            La respiration "soupirée"
+                        </h3>
+                        <p class="text-sm mt-2 z-20">
+                            Aide à relâcher la pression en quelques secondes.
+                        </p>
+
+                        <div
+                            class="absolute top-2 left-3 text-[100px] font-extrabold text-transparent z-0 leading-none"
+                            style="-webkit-text-stroke: 2px white; opacity: 0.3;"
+                        >
+                            3
+                        </div>
+                    </div>
+
+                    <div class="w-1/2 image-part transition-all duration-300">
+                        <img
+                            src="../assets/img/img3-respiration.jpg"
+                            alt="Femme en méditation"
+                            class="h-full w-full object-cover"
+                        />
+                    </div>
+                </div>
+
+                <div
+                    class="absolute inset-0 bg-[#7096D1] text-white p-6 z-20 hidden clicked-content flex flex-col justify-center text-sm space-y-2"
+                >
+                    <p>
+                        Prenez une grande <span class="text-pink-300 font-bold"
+                            >inspiration</span
+                        > par le nez.
+                    </p>
+                    <p>
+                        <span class="text-pink-300 font-bold"
+                            >Expirez bruyamment</span
+                        > par la bouche comme si vous poussiez un <span
+                            class="text-pink-300 font-bold"
+                            >soupir de soulagement</span
+                        >.
+                    </p>
+                    <p>
+                        Continuez pendant <span class="text-pink-300 font-bold"
+                            >1 à 2 minutes</span
+                        >.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel2-slide">
+            <div
+                class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
+                onclick="toggleCard(this)"
+            >
+                <div class="flex w-full h-full">
+                    <div
+                        class="bg-[#7096D1] text-white p-6 w-1/2 relative z-10 flex flex-col justify-center default-content transition-all duration-300"
+                    >
+                        <h3 class="text-xl font-bold z-20">
+                            Réguler le rythme cardiaque
+                        </h3>
+                        <p class="text-sm mt-2 z-20">
+                            Synchroniser la respiration avec un rythme régulier
+                            calme le système nerveux.
+                        </p>
+
+                        <div
+                            class="absolute top-2 left-3 text-[100px] font-extrabold text-transparent z-0 leading-none"
+                            style="-webkit-text-stroke: 2px white; opacity: 0.3;"
+                        >
+                            4
+                        </div>
+                    </div>
+
+                    <div class="w-1/2 image-part transition-all duration-300">
+                        <img
+                            src="../assets/img/img4-respiration.jpg"
+                            alt="Femme en méditation"
+                            class="h-full w-full object-cover"
+                        />
+                    </div>
+                </div>
+
+                <div
+                    class="absolute inset-0 bg-[#7096D1] text-white p-6 z-20 hidden clicked-content flex flex-col justify-center text-sm space-y-2"
+                >
+                    <p>
+                        Inspirez par le nez pendant <span
+                            class="text-pink-300 font-bold">5 secondes</span
+                        >.
+                    </p>
+                    <p>
+                        Expirez doucement par la bouche pendant <span
+                            class="text-pink-300 font-bold">5 secondes</span
+                        >.
+                    </p>
+                    <p>
+                        Continuez pendant <span class="text-pink-300 font-bold"
+                            >1 à 2 minutes</span
+                        >.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel2-slide">
+            <div
+                class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
+                onclick="toggleCard(this)"
+            >
+                <div class="flex w-full h-full">
+                    <div
+                        class="bg-[#7096D1] text-white p-6 w-1/2 relative z-10 flex flex-col justify-center default-content transition-all duration-300"
+                    >
+                        <h3 class="text-xl font-bold z-20">
+                            La technique de la bougie
+                        </h3>
+                        <p class="text-sm mt-2 z-20">
+                            Une technique imagée pour allonger l'expiration et
+                            calmer le stress.
+                        </p>
+
+                        <div
+                            class="absolute top-2 left-3 text-[100px] font-extrabold text-transparent z-0 leading-none"
+                            style="-webkit-text-stroke: 2px white; opacity: 0.3;"
+                        >
+                            5
+                        </div>
+                    </div>
+
+                    <div class="w-1/2 image-part transition-all duration-300">
+                        <img
+                            src="../assets/img/img5-respiration.jpg"
+                            alt="Femme en méditation"
+                            class="h-full w-full object-cover"
+                        />
+                    </div>
+                </div>
+
+                <div
+                    class="absolute inset-0 bg-[#7096D1] text-white p-6 z-20 hidden clicked-content flex flex-col justify-center text-sm space-y-2"
+                >
+                    <p>
+                        <span class="text-pink-300 font-bold">Inspirez</span> par
+                        le nez en imaginant que vous remplissez vos poumons d'air.
+                    </p>
+                    <p>
+                        <span class="text-pink-300 font-bold">Expirez</span> lentement
+                        par la bouche comme si vous <span
+                            class="text-pink-300 font-bold">souffliez</span
+                        > doucement sur une bougie sans l’éteindre.
+                    </p>
+                    <p>
+                        Répétez jusqu'à ressentir un <span
+                            class="text-pink-300 font-bold">apaisement</span
+                        >.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel2-slide">
+            <div
+                class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
+                onclick="toggleCard(this)"
+            >
+                <div class="flex w-full h-full">
+                    <div
+                        class="bg-[#7096D1] text-white p-6 w-1/2 relative z-10 flex flex-col justify-center default-content transition-all duration-300"
+                    >
+                        <h3 class="text-xl font-bold z-20">
+                            Réguler le rythme cardiaque
+                        </h3>
+                        <p class="text-sm mt-2 z-20">
+                            Synchroniser la respiration avec un rythme régulier
+                            calme le système nerveux.
+                        </p>
+
+                        <div
+                            class="absolute top-2 left-3 text-[100px] font-extrabold text-transparent z-0 leading-none"
+                            style="-webkit-text-stroke: 2px white; opacity: 0.3;"
+                        >
+                            6
+                        </div>
+                    </div>
+
+                    <div class="w-1/2 image-part transition-all duration-300">
+                        <img
+                            src="../assets/img/img6-respiration.jpg"
+                            alt="Femme en méditation"
+                            class="h-full w-full object-cover"
+                        />
+                    </div>
+                </div>
+
+                <div
+                    class="absolute inset-0 bg-[#7096D1] text-white p-6 z-20 hidden clicked-content flex flex-col justify-center text-sm space-y-2"
+                >
+                    <p>
+                        <span class="text-pink-300 font-bold">Inspirez</span> par
+                        le nez en comptant jusqu’à <span
+                            class="text-pink-300 font-bold">3</span
+                        >.
+                    </p>
+                    <p>
+                        <span class="text-pink-300 font-bold">Expirez</span> par
+                        la bouche en comptant jusqu’à <span
+                            class="text-pink-300 font-bold">4</span
+                        >.
+                    </p>
+                    <p>
+                        Au cycle suivant, <span class="text-pink-300 font-bold"
+                            >inspirez</span
+                        > sur <span class="text-pink-300 font-bold">4</span> et expirez
+                        sur <span class="text-pink-300 font-bold">5</span>.
+                    </p>
+                    <p>
+                        Continuez en augmentant progressivement l’<span
+                            class="text-pink-300 font-bold">expiration</span
+                        > jusqu’à ressentir un <span
+                            class="text-pink-300 font-bold">apaisement</span
+                        >.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel2-slide">
+            <div
+                class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
+                onclick="toggleCard(this)"
+            >
+                <div class="flex w-full h-full">
+                    <div
+                        class="bg-[#7096D1] text-white p-6 w-1/2 relative z-10 flex flex-col justify-center default-content transition-all duration-300"
+                    >
+                        <h3 class="text-xl font-bold z-20">
+                            La respiration des vagues
+                        </h3>
+                        <p class="text-sm mt-2 z-20">
+                            Un exercice fluide qui imite le va-et-vient de
+                            l’océan.
+                        </p>
+
+                        <div
+                            class="absolute top-2 left-3 text-[100px] font-extrabold text-transparent z-0 leading-none"
+                            style="-webkit-text-stroke: 2px white; opacity: 0.3;"
+                        >
+                            7
+                        </div>
+                    </div>
+
+                    <div class="w-1/2 image-part transition-all duration-300">
+                        <img
+                            src="../assets/img/img7-respiration.jpg"
+                            alt="Femme en méditation"
+                            class="h-full w-full object-cover"
+                        />
+                    </div>
+                </div>
+
+                <div
+                    class="absolute inset-0 bg-[#7096D1] text-white p-6 z-20 hidden clicked-content flex flex-col justify-center text-sm space-y-2"
+                >
+                    <p>
+                        <span class="text-pink-300 font-bold">Inspirez</span> profondément
+                        par le nez en imaginant une vague qui monte.
+                    </p>
+                    <p>
+                        <span class="text-pink-300 font-bold">Expirez</span> lentement
+                        par la bouche en visualisant la vague qui redescend.
+                    </p>
+                    <p>
+                        Continuez ce rythme pendant <span
+                            class="text-pink-300 font-bold">2</span
+                        > à <span class="text-pink-300 font-bold"
+                            >5 minutes</span
+                        > en vous laissant porter par la sensation de fluidité.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel2-slide">
+            <div
+                class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
+                onclick="toggleCard(this)"
+            >
+                <div class="flex w-full h-full">
+                    <div
+                        class="bg-[#7096D1] text-white p-6 w-1/2 relative z-10 flex flex-col justify-center default-content transition-all duration-300"
+                    >
+                        <h3 class="text-xl font-bold z-20">
+                            Respiration sifflée
+                        </h3>
+                        <p class="text-sm mt-2 z-20">
+                            Une méthode qui favorise une expiration contrôlée
+                            pour apaiser rapidement.
+                        </p>
+
+                        <div
+                            class="absolute top-2 left-3 text-[100px] font-extrabold text-transparent z-0 leading-none"
+                            style="-webkit-text-stroke: 2px white; opacity: 0.3;"
+                        >
+                            8
+                        </div>
+                    </div>
+
+                    <div class="w-1/2 image-part transition-all duration-300">
+                        <img
+                            src="../assets/img/img8-respiration.jpg"
+                            alt="Femme en méditation"
+                            class="h-full w-full object-cover"
+                        />
+                    </div>
+                </div>
+
+                <div
+                    class="absolute inset-0 bg-[#7096D1] text-white p-6 z-20 hidden clicked-content flex flex-col justify-center text-sm space-y-2"
+                >
+                    <p>
+                        <span class="text-pink-300 font-bold">Inspirez</span> lentement
+                        par le nez.
+                    </p>
+                    <p>
+                        <span class="text-pink-300 font-bold">Expirez</span> doucement
+                        en laissant passer l’air entre vos lèvres comme si vous siffliez
+                        (sans son).
+                    </p>
+                    <p>
+                        Sentez l’air s’échapper lentement et relâchez les
+                        tensions à chaque <span class="text-pink-300 font-bold"
+                            >souffle</span
+                        >.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel2-slide">
+            <div
+                class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
+                onclick="toggleCard(this)"
+            >
+                <div class="flex w-full h-full">
+                    <div
+                        class="bg-[#7096D1] text-white p-6 w-1/2 relative z-10 flex flex-col justify-center default-content transition-all duration-300"
+                    >
+                        <h3 class="text-xl font-bold z-20">
+                            La respiration du ballon
+                        </h3>
+                        <p class="text-sm mt-2 z-20">
+                            Un exercice ludique pour relâcher la pression
+                            mentale.
+                        </p>
+
+                        <div
+                            class="absolute top-2 left-3 text-[100px] font-extrabold text-transparent z-0 leading-none"
+                            style="-webkit-text-stroke: 2px white; opacity: 0.3;"
+                        >
+                            9
+                        </div>
+                    </div>
+
+                    <div class="w-1/2 image-part transition-all duration-300">
+                        <img
+                            src="../assets/img/img9-respiration.jpg"
+                            alt="Femme en méditation"
+                            class="h-full w-full object-cover"
+                        />
+                    </div>
+                </div>
+
+                <div
+                    class="absolute inset-0 bg-[#7096D1] text-white p-6 z-20 hidden clicked-content flex flex-col justify-center text-sm space-y-2"
+                >
+                    <p>
+                        <span class="text-pink-300 font-bold">Inspirez</span> profondément
+                        par le nez en imaginant gonfler un ballon dans votre ventre.
+                    </p>
+                    <p>
+                        <span class="text-pink-300 font-bold">Expirez</span> lentement
+                        par la bouche en imaginant le ballon se dégonfler.
+                    </p>
+                    <p>
+                        Répétez en synchronisant le mouvement de votre ventre
+                        avec votre <span class="text-pink-300 font-bold"
+                            >souffle</span
+                        >.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="carousel2-btn carousel2-btn-left" onclick="prevSlide()"
+        >‹</button
+    >
+    <button class="carousel2-btn carousel2-btn-right" onclick="nextSlide()"
+        >›</button
+    >
+</div>
+
+<script is:inline>
+    let index = 0;
+    const track = document.getElementById("carousel2-track");
+    const total = track.children.length;
+
+    function updateSlide() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function prevSlide() {
+        index = (index - 1 + total) % total;
+        updateSlide();
+    }
+
+    function nextSlide() {
+        index = (index + 1) % total;
+        updateSlide();
+    }
+
+    function toggleCard(card) {
+        const defaultContent = card.querySelector(".default-content");
+        const imagePart = card.querySelector(".image-part");
+        const clickedContent = card.querySelector(".clicked-content");
+
+        const isActive = !clickedContent.classList.contains("hidden");
+
+        if (isActive) {
+            clickedContent.classList.add("hidden");
+            defaultContent.classList.remove("hidden");
+            imagePart.classList.remove("hidden");
+        } else {
+            clickedContent.classList.remove("hidden");
+            defaultContent.classList.add("hidden");
+            imagePart.classList.add("hidden");
+        }
+    }
+</script>

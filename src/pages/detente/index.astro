@@ -1,0 +1,45 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+import Carousel2 from "../../components/Carousel2.astro";
+import Carousel3 from "../../components/Carousel3.astro";
+---
+
+<Layout>
+    <h1>COIN DÉTENTE</h1>
+    <h2>Exercices de respiration</h2>
+    <p>
+        Nous mettons à votre <span class="text-pink-300 font-bold"
+            >disposition</span
+        > une série d’exercices de respiration conçus pour vous <span
+            class="text-pink-300 font-bold">aider</span
+        > à vous détendre et à retrouver un état de
+        <span class="text-pink-300 font-bold">calme</span>. Simples et
+        accessibles à tout moment, ces techniques vous permettront de <span
+            class="text-pink-300 font-bold">recentrer</span
+        > votre attention, d’<span class="text-pink-300 font-bold">apaiser</span
+        >
+        votre esprit et de mieux gérer vos <span class="text-pink-300 font-bold"
+            >émotions</span
+        > au quotidien. Prenez un instant pour respirer et vous reconnecter à vous-même.
+    </p>
+    <div class="lg:max-w-[600px] w-full mx-auto">
+        <Carousel2 />
+    </div>
+
+    <h2>Exercices de yoga - pour débutant(e)</h2>
+    <p>
+        Nous vous proposons une sélection d’exercices de yoga adaptés aux
+        débutants, conçus pour vous aider à
+        <span class="text-pink-300 font-bold">vous détendre</span>, à améliorer
+        votre <span class="text-pink-300 font-bold">souplesse</span> et à renforcer
+        votre <span class="text-pink-300 font-bold">concentration</span>. Ces
+        postures simples et accessibles vous permettront de découvrir les
+        bienfaits du yoga tout en prenant soin de votre corps et de votre
+        esprit. Prenez un moment pour vous recentrer et profiter de ces
+        exercices apaisants.
+    </p>
+    <div class="lg:max-w-[600px] w-full mx-auto">
+        <Carousel3 />
+    </div>
+</Layout>
