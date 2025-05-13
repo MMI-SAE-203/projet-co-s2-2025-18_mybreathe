@@ -58,25 +58,32 @@ import Layout from "../../layouts/Layout.astro";
     </div>
 
     <div
-        class="bg-white h-screen flex flex-col items-center justify-between p-10"
+        class="min-h-screen bg-[#06064F] flex items-center justify-center px-4 py-10"
     >
-        <div class="text-center">
-            <h3 class="text-[#06064F]">Besoin de se sentir mieux ?</h3>
-            <p class="font-semibold text-[#06064F]">
-                si oui, accédez à notre...
-            </p>
-        </div>
-        <div class="flex flex-col sm:flex-row items-center gap-4 mt-8">
-            <a
-                href="/detente"
-                class="inline-block bg-[#FCB2D8] text-[#06064F] font-bold px-4 py-2 rounded-full"
-            >
-                COIN DÉTENTE
-            </a>
+        <div class="relative w-full max-w-6xl">
+            <div class="bg-white rounded-lg p-8 shadow-lg relative z-0">
+                <div class="text-left">
+                    <h2
+                        class="text-[#06064F] text-2xl sm:text-3xl font-bold mb-2"
+                    >
+                        Besoin de se sentir mieux ?
+                    </h2>
+                    <p class="text-[#06064F] mb-4">
+                        si oui, accédez à notre.....
+                    </p>
+                    <a
+                        href="/detente"
+                        class="inline-block bg-[#FCB2D8] text-[#06064F] font-bold px-4 py-2 rounded-full"
+                    >
+                        COIN DÉTENTE
+                    </a>
+                </div>
+            </div>
+
             <img
                 src="/src/assets/img/exercices_respiration_accueil.webp"
                 alt="Personnage qui médite"
-                class="w-24 h-auto sm:w-32 sm:h-auto"
+                class="absolute bottom-0 translate-y-1/2 right-6 w-32 sm:w-40 z-10"
             />
         </div>
     </div>
