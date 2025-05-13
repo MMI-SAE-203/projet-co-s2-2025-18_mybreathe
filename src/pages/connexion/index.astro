@@ -5,18 +5,17 @@ import "../../styles/global.css";
 
 <Layout>
     <body
-        class="min-h-screen flex items-center justify-center bg-[#0A0A46] font-sans px-4"
+        class="min-h-screen flex items-center justify-center font-sans px-4"
     >
         <div class="w-full max-w-sm sm:max-w-md px-4 sm:px-6 py-6 sm:py-10">
             <h1
-                class="text-2xl sm:text-3xl font-extrabold text-white text-center mb-4 sm:mb-6"
+                class="text-2xl sm:text-3xl font-extrabold text-center mb-4 sm:mb-6"
             >
                 CONNEXION / INSCRIPTION
             </h1>
 
-            <!-- Onglets -->
             <div
-                class="flex justify-between text-white mb-6 border-b border-white/30"
+                class="flex justify-between mb-6 border-b border-white/30"
             >
                 <button
                     id="tab-inscription"
@@ -32,7 +31,6 @@ import "../../styles/global.css";
                 </button>
             </div>
 
-            <!-- Formulaire Connexion -->
             <form id="form-connexion" class="space-y-4 sm:space-y-5">
                 <div class="relative">
                     <input
@@ -55,7 +53,6 @@ import "../../styles/global.css";
                 >
             </form>
 
-            <!-- Formulaire Inscription -->
             <form id="form-inscription" class="space-y-4 sm:space-y-5 hidden">
                 <div class="space-y-2 text-white text-sm">
                     <label
@@ -103,7 +100,6 @@ import "../../styles/global.css";
             </form>
         </div>
 
-        <!-- JS placé à la fin -->
         <script>
             document.addEventListener("DOMContentLoaded", () => {
                 const btnConnexion = document.getElementById("tab-connexion");

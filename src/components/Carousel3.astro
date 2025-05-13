@@ -15,20 +15,20 @@ const images = [
 ---
 
 <style>
-    .carousel2 {
+    .carousel3 {
         position: relative;
         overflow: hidden;
         width: 100%;
         height: auto;
     }
 
-    .carousel2-track {
+    .carousel3-track {
         display: flex;
         transition: transform 0.5s ease-in-out;
         width: 100%;
     }
 
-    .carousel2-slide {
+    .carousel3-slide {
         min-width: 100%;
         flex-shrink: 0;
         object-fit: contain;
@@ -38,15 +38,15 @@ const images = [
             transform 0.3s ease-in-out;
     }
 
-    .carousel2-slide.active {
+    .carousel3-slide.active {
         transform: scale(1.1);
     }
 
-    .carousel2-slide:not(.active) {
+    .carousel3-slide:not(.active) {
         transform: scale(0.9);
     }
 
-    .carousel2-btn {
+    .carousel3-btn {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -59,18 +59,18 @@ const images = [
         z-index: 10;
     }
 
-    .carousel2-btn-left {
+    .carousel3-btn-left {
         left: 10px;
     }
 
-    .carousel2-btn-right {
+    .carousel3-btn-right {
         right: 10px;
     }
 </style>
 
-<div class="carousel2">
-    <div class="carousel2-track" id="carousel2-track">
-        <div class="carousel2-slide">
+<div class="carousel3">
+    <div class="carousel3-track" id="carousel3-track">
+        <div class="carousel3-slide">
             <div
                 class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
                 onclick="toggleCard(this)"
@@ -134,7 +134,7 @@ const images = [
             </div>
         </div>
 
-        <div class="carousel2-slide">
+        <div class="carousel3-slide">
             <div
                 class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
                 onclick="toggleCard(this)"
@@ -183,7 +183,7 @@ const images = [
             </div>
         </div>
 
-        <div class="carousel2-slide">
+        <div class="carousel3-slide">
             <div
                 class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
                 onclick="toggleCard(this)"
@@ -235,7 +235,7 @@ const images = [
             </div>
         </div>
 
-        <div class="carousel2-slide">
+        <div class="carousel3-slide">
             <div
                 class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
                 onclick="toggleCard(this)"
@@ -286,10 +286,10 @@ const images = [
         </div>
     </div>
 
-    <button class="carousel2-btn carousel2-btn-left" onclick="prevSlide()"
+    <button class="carousel3-btn carousel3-btn-left" onclick="prevSlide()"
         >‹</button
     >
-    <button class="carousel2-btn carousel2-btn-right" onclick="nextSlide()"
+    <button class="carousel3-btn carousel3-btn-right" onclick="nextSlide()"
         >›</button
     >
 </div>
