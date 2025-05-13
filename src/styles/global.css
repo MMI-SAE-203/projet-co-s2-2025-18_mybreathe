@@ -17,7 +17,7 @@
     }
 
     h2 {
-        @apply font-Montserrat text-[36px] font-bold my-4;
+        @apply font-Montserrat text-[30px] font-bold my-4;
     }
 
     h3 {
