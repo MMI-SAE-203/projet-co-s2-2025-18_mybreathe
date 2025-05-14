@@ -3,16 +3,27 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout>
-    <div
-        class="flex flex-col-reverse lg:flex-row items-center justify-center h-screen my-20 gap-8 text-center lg:text-left"
+    <section
+        class="relative bg-[#06064F] h-screen flex items-center justify-center overflow-hidden"
     >
-        <h1 class="text-6xl font-bold">2BeBetter</h1>
+        <h1
+            class="absolute top-60 text-[64px] sm:text-[96px] font-bold text-white z-0 w-full text-center"
+        >
+            2BeBetter
+        </h1>
+
         <img
-            class="max-w-170"
             src="/src/assets/img/acceuil_personnage1.svg"
-            alt=""
+            alt="Groupe de personnes"
+            class="relative z-10 max-w-[100%] sm:max-w-xl"
         />
-    </div>
+
+        <div
+            class="absolute bottom-40 left-1/2 transform -translate-x-1/2 animate-bounce text-white text-6xl"
+        >
+            ↓
+        </div>
+    </section>
 
     <div>
         <h2 class="text-[36px] font-bold mb-8">
@@ -57,9 +68,7 @@ import Layout from "../../layouts/Layout.astro";
         </a>
     </div>
 
-    <div
-        class="min-h-screen bg-[#06064F] flex items-center justify-center px-4 py-10"
-    >
+    <div class="bg-[#06064F] flex items-center justify-center px-4 pb-30 pt-20">
         <div class="relative w-full max-w-6xl">
             <div class="bg-white rounded-lg p-8 shadow-lg relative z-0">
                 <div class="text-left">
@@ -69,7 +78,7 @@ import Layout from "../../layouts/Layout.astro";
                         Besoin de se sentir mieux ?
                     </h2>
                     <p class="text-[#06064F] mb-4">
-                        si oui, accédez à notre.....
+                        si oui, accédez à notre...
                     </p>
                     <a
                         href="/detente"
@@ -87,4 +96,52 @@ import Layout from "../../layouts/Layout.astro";
             />
         </div>
     </div>
+
+    <section class="bg-[#06064F] text-white px-4 pb-40 pt-10">
+        <div class="max-w-4xl mx-auto space-y-6">
+            <div class="bg-[#1E1E7A] rounded-lg p-4 shadow-md">
+                <span
+                    class="inline-block bg-white text-[#06064F] font-semibold px-3 py-1 rounded-full mb-2"
+                >
+                    Thomas, 16 ans
+                </span>
+                <p class="text-white">
+                    Je m’appelle Thomas, j’ai 16 ans, et pendant presque toute
+                    mon année de seconde, j’ai été harcelé par un groupe de
+                    camarades. Au début, c’était "juste" des moqueries sur ma
+                    façon de m’habiller ou de parler. Puis, ils ont commencé à
+                    m’exclure des groupes de travail, à changer de table à la
+                    cantine quand j’arrivais, à créer un groupe WhatsApp où ils
+                    m’insultaient derrière mon dos.
+                </p>
+            </div>
+
+            <div class="bg-[#1E1E7A] rounded-lg p-4 shadow-md">
+                <span
+                    class="inline-block bg-white text-[#06064F] font-semibold px-3 py-1 rounded-full mb-2"
+                >
+                    Sophie, 34 ans
+                </span>
+                <p class="text-white">
+                    Je suis Sophie, 34 ans, assistante administrative dans une
+                    PME. Mon harcèlement a commencé insidieusement : des
+                    remarques sur mon travail "pas assez rapide", des réflexions
+                    devant mes collègues comme quoi j’étais "trop émotive". Mon
+                    responsable me donnait des tâches floues, puis me reprochait
+                    de ne pas avoir bien compris. Parfois, il m’ignorait
+                    totalement, d’autres fois, il me mettait une pression
+                    énorme.
+                </p>
+            </div>
+
+            <div class="text-center mt-6">
+                <a
+                    href="/temoignages"
+                    class="inline-block bg-[#FCB2D8] text-[#06064F] font-bold px-6 py-2 rounded-full"
+                >
+                    PLUS DE TÉMOIGNAGES
+                </a>
+            </div>
+        </div>
+    </section>
 </Layout>
