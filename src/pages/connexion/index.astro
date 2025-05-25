@@ -1,147 +1,170 @@
----
-import Layout from "../../layouts/Layout.astro";
-import "../../styles/global.css";
----
-
-<Layout>
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Connexion</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-image: url("/oreole.png");
+                background-size: cover;
+                background-position: center;
+                opacity: 1;
+                z-index: -1;
+            }
+        </style>
+    </head>
     <body
-        class="min-h-screen flex items-center justify-center font-sans px-4"
+        class="min-h-screen flex items-center justify-center font-sans relative bg-black"
     >
-        <div class="w-full max-w-sm sm:max-w-md px-4 sm:px-6 py-6 sm:py-10">
-            <h1
-                class="text-2xl sm:text-3xl font-extrabold text-center mb-4 sm:mb-6"
-            >
-                CONNEXION / INSCRIPTION
-            </h1>
-
-            <div
-                class="flex justify-between mb-6 border-b border-white/30"
-            >
-                <button
-                    id="tab-inscription"
-                    class="w-1/2 text-sm sm:text-base py-2 border-b-2 border-transparent"
-                >
-                    inscription
-                </button>
-                <button
-                    id="tab-connexion"
-                    class="w-1/2 text-sm sm:text-base py-2 border-b-2 border-blue-400 font-semibold"
-                >
-                    connexion
-                </button>
+        <div class="w-full max-w-md text-white px-8 py-10 rounded-lg z-10">
+            <div class="text-center mb-6">
+                <h1 class="text-3xl font-bold">Bienvenue Sur 2BeBetter</h1>
+                <p class="text-sm text-gray-300 mt-1">
+                    Nous somme content de vous revoir, connecter vous pour
+                    accéder à votre compte
+                </p>
             </div>
 
-            <form id="form-connexion" class="space-y-4 sm:space-y-5">
-                <div class="relative">
-                    <input
-                        type="text"
-                        placeholder="exemple.1"
-                        class="w-full pl-10 pr-4 py-2 rounded-full bg-white/10 text-white placeholder-white/60 border border-white/30"
-                    />
-                </div>
-                <div class="relative">
-                    <input
-                        type="password"
-                        placeholder="••••••••"
-                        class="w-full pl-10 pr-10 py-2 rounded-full bg-white/10 text-white placeholder-white/60 border border-white/30"
-                    />
-                </div>
-                <button
-                    type="submit"
-                    class="w-full py-2 rounded-full bg-pink-300 text-blue-900 font-bold"
-                    >Connexion</button
-                >
-            </form>
+            <div
+                id="welcome-message"
+                class="hidden text-center text-lg font-semibold text-green-400 mb-4"
+            >
+            </div>
 
-            <form id="form-inscription" class="space-y-4 sm:space-y-5 hidden">
-                <div class="space-y-2 text-white text-sm">
-                    <label
-                        ><input type="checkbox" class="mr-2" />Je suis
-                        harcelé(e)</label
-                    ><br />
-                    <label
-                        ><input type="checkbox" class="mr-2" />Je pense harceler
-                        une personne</label
+            <form class="space-y-4">
+                <div>
+                    <label for="email" class="text-xs font-light text-gray-400"
+                        >Username or Email</label
                     >
-                </div>
-                <div class="relative">
-                    <input
-                        type="text"
-                        placeholder="exemple.1"
-                        class="w-full pl-10 pr-4 py-2 rounded-full bg-white/10 text-white placeholder-white/60 border border-white/30"
-                    />
-                </div>
-                <div class="relative">
                     <input
                         type="email"
-                        placeholder="exemple@ex.com"
-                        class="w-full pl-10 pr-4 py-2 rounded-full bg-white/10 text-white placeholder-white/60 border border-white/30"
+                        id="email"
+                        placeholder="muffinworks@gmail.com"
+                        class="mt-1 w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
                 </div>
-                <div class="relative">
-                    <input
-                        type="password"
-                        placeholder="••••••••"
-                        class="w-full pl-10 pr-10 py-2 rounded-full bg-white/10 text-white placeholder-white/60 border border-white/30"
-                    />
+                <div>
+                    <label
+                        for="password"
+                        class="text-xs font-light text-gray-400">Password</label
+                    >
+                    <div class="relative">
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Password"
+                            class="mt-1 w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 pr-10"
+                        />
+                        <span
+                            class="absolute inset-y-0 right-3 flex items-center text-gray-500 cursor-pointer"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M13.875 18.825A10.05 10.05 0 0112 19c-5.523 0-10-4.477-10-10S6.477-1 12-1s10 4.477 10 10c0 1.227-.218 2.404-.625 3.5"
+                                ></path>
+                            </svg>
+                        </span>
+                    </div>
                 </div>
-                <div class="relative">
-                    <input
-                        type="password"
-                        placeholder="••••••••"
-                        class="w-full pl-10 pr-10 py-2 rounded-full bg-white/10 text-white placeholder-white/60 border border-white/30"
-                    />
-                </div>
+
                 <button
                     type="submit"
-                    class="w-full py-2 rounded-full bg-pink-300 text-blue-900 font-bold"
-                    >Inscription</button
+                    class="w-full bg-gradient-to-r from-purple-600 to-purple-500 py-2 rounded-md font-semibold text-white hover:opacity-90"
+                    >Se connecter</button
                 >
             </form>
         </div>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const btnConnexion = document.getElementById("tab-connexion");
-                const btnInscription =
-                    document.getElementById("tab-inscription");
-                const formConnexion = document.getElementById("form-connexion");
-                const formInscription =
-                    document.getElementById("form-inscription");
-
-                function switchToConnexion() {
-                    formConnexion.classList.remove("hidden");
-                    formInscription.classList.add("hidden");
-                    btnConnexion.classList.add(
-                        "border-blue-400",
-                        "font-semibold",
-                    );
-                    btnInscription.classList.remove(
-                        "border-blue-400",
-                        "font-semibold",
-                    );
-                    btnConnexion.classList.remove("border-transparent");
-                    btnInscription.classList.add("border-transparent");
-                }
-
-                function switchToInscription() {
-                    formConnexion.classList.add("hidden");
-                    formInscription.classList.remove("hidden");
-                    btnInscription.classList.add(
-                        "border-blue-400",
-                        "font-semibold",
-                    );
-                    btnConnexion.classList.remove(
-                        "border-blue-400",
-                        "font-semibold",
-                    );
-                    btnInscription.classList.remove("border-transparent");
-                    btnConnexion.classList.add("border-transparent");
-                }
-
-                btnConnexion.addEventListener("click", switchToConnexion);
-                btnInscription.addEventListener("click", switchToInscription);
-            });
-        </script>
     </body>
-</Layout>
+
+    <div class="absolute bottom-4 left-6 text-xs text-gray-400">
+        Pas encore de compte ? <a href="#" class="underline">S’inscrire</a>
+    </div>
+
+    <script type="module">
+        import PocketBase from "/lib/pocketbase.mjs";
+
+        const pb = new PocketBase("http://127.0.0.1:8090");
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const form = document.querySelector("form");
+            const welcomeMessage = document.querySelector("#welcome-message");
+
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                const email = document.querySelector("#email").value;
+                const password = document.querySelector("#password").value;
+
+                try {
+                    const authData = await pb
+                        .collection("users")
+                        .authWithPassword(email, password);
+                    const user = pb.authStore.model;
+
+                    document.cookie = `pb_auth=${pb.authStore.token}; path=/; SameSite=Lax`;
+
+                    form.classList.add("hidden");
+                    welcomeMessage.classList.remove("hidden");
+                    welcomeMessage.innerText = `Bienvenue, ${user.name} !`;
+
+                    setTimeout(() => {
+                        window.location.href = "/accueil"; // ou "/profil" selon ce que tu préfères
+                    }, 1000);
+                } catch (err) {
+                    alert("Erreur de connexion : " + err.message);
+                }
+            });
+        });
+    </script>
+
+    <script type="module">
+        import PocketBase from "/lib/pocketbase.mjs";
+
+        const pb = new PocketBase("http://127.0.0.1:8090");
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const form = document.querySelector("form");
+            const welcomeMessage = document.querySelector("#welcome-message");
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                const email = document.querySelector("#email").value;
+                const password = document.querySelector("#password").value;
+
+                console.log("Tentative de connexion avec", email);
+
+                try {
+                    const authData = await pb
+                        .collection("utilisateurs")
+                        .authWithPassword(email, password);
+                    const user = pb.authStore.model;
+                    form.classList.add("hidden");
+                    welcomeMessage.classList.remove("hidden");
+                    welcomeMessage.innerText = `Bienvenue, ${user.name} !`;
+                } catch (err) {
+                    alert("Erreur de connexion : " + err.message);
+                }
+            });
+        });
+    </script>
+</html>
