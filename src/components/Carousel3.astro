@@ -1,333 +1,103 @@
 ---
-import imgDiscussions from "../assets/img/carousel_discussions.webp";
-import imgExercices from "../assets/img/carousel_ex.webp";
-import imgMoodtracker from "../assets/img/carousel_moodtracker.webp";
-import imgNumero from "../assets/img/carousel_numero.webp";
-import imgTemoignage from "../assets/img/carousel_temoignages.webp";
 
-const images = [
-    imgDiscussions,
-    imgExercices,
-    imgMoodtracker,
-    imgNumero,
-    imgTemoignage,
-];
 ---
 
-<style>
-    .carousel3 {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        height: auto;
-    }
+<div class="overflow-x-auto whitespace-nowrap px-6 py-10">
+    <div class="inline-flex gap-6">
+        {
+            [
+                {
+                    title: " Respiration consciente (1-2 min)",
+                    description:
+                        "Idéal pour calmer rapidement le système nerveux.",
+                    details: `Inspirez profondément par le nez en comptant jusqu'à 3.
+                  Retenez votre souffle 3 secondes.
+                  Expirez lentement par la bouche en comptant jusqu'à 6.
+                  Répétez pendant 1 à 2 minutes jusqu'à ressentir un apaisement.`,
+                },
+                {
+                    title: "Relaxation profonde",
+                    description: "Une méthode pour libérer les tensions.",
+                    details: `Fermez les yeux et imaginez-vous dans un lieu calme.
+                  Respirez profondément et relâchez toute tension à chaque expiration.`,
+                },
+                {
+                    title: "Méthode de concentration",
+                    description: "Parfaite pour améliorer la concentration.",
+                    details: `Concentrez-vous sur un objet ou une image et respirez profondément.
+                  Maintenez cette attention pendant quelques minutes.`,
+                },
+                {
+                    title: "Équilibre énergétique",
+                    description: "Idéal pour rétablir l’équilibre intérieur.",
+                    details: `Visualisez une lumière qui circule dans votre corps.
+                  Respirez profondément et imaginez l’énergie se déplacer à travers vous.`,
+                },
+                {
+                    title: "Méditation guidée",
+                    description:
+                        "Suivez les instructions pour entrer en méditation.",
+                    details: `Asseyez-vous confortablement et concentrez-vous sur votre respiration.
+                  Suivez les étapes pour entrer dans un état de relaxation profonde.`,
+                },
+            ].map((card, index) => (
+                <div
+                    key={index}
+                    class="flip-card w-[300px] h-[400px] inline-block"
+                >
+                    <div class="flip-card-inner w-full h-full relative">
+                        <div class="flip-card-front absolute w-full h-full rounded-2xl overflow-hidden backface-hidden shadow-xl">
+                            <div class="absolute top-0 left-0 bg-[#7096D1] p-6 w-full h-full flex flex-col justify-center overflow-hidden">
+                                <p class="text-5xl">{index + 1}</p>
+                                <h2 class="text-2xl font-bold text-ellipsis overflow-hidden whitespace-nowrap">
+                                    {card.title}
+                                </h2>
+                            </div>
+                        </div>
 
-    .carousel3-track {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        width: 100%;
-    }
-
-    .carousel3-slide {
-        min-width: 100%;
-        flex-shrink: 0;
-        object-fit: contain;
-        height: auto;
-        transition:
-            transform 0.5s ease-in-out,
-            transform 0.3s ease-in-out;
-    }
-
-    .carousel3-slide.active {
-        transform: scale(1.1);
-    }
-
-    .carousel3-slide:not(.active) {
-        transform: scale(0.9);
-    }
-
-    .carousel3-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0.4);
-        border: none;
-        color: white;
-        font-size: 2rem;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-        z-index: 10;
-    }
-
-    .carousel3-btn-left {
-        left: 10px;
-    }
-
-    .carousel3-btn-right {
-        right: 10px;
-    }
-</style>
-
-<div class="carousel3">
-    <div class="carousel3-track" id="carousel3-track">
-        <div class="carousel3-slide">
-            <div
-                class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
-                onclick="toggleCard(this)"
-            >
-                <div class="flex w-full h-full">
-                    <div
-                        class="bg-[#7096D1] text-white p-6 w-1/2 relative z-10 flex flex-col justify-center default-content transition-all duration-300"
-                    >
-                        <h3 class="text-xl font-bold z-20">
-                            Respiration consciente (1-2 min)
-                        </h3>
-                        <p class="text-sm mt-2 z-20">
-                            Un exercice simple pour calmer instantanément le
-                            mental et réguler le rythme cardiaque.
-                        </p>
-
-                        <div
-                            class="absolute top-2 left-3 text-[100px] font-extrabold text-transparent z-0 leading-none"
-                            style="-webkit-text-stroke: 2px white; opacity: 0.3;"
-                        >
-                            1
+                        <div class="flip-card-back absolute w-full h-full rounded-2xl px-5 bg-[#7096D1] text-center flex items-center justify-center backface-hidden rotate-y-180 shadow-xl overflow-hidden">
+                            <p class="text-lg text-ellipsis overflow-hidden whitespace-normal">
+                                {card.details}
+                            </p>
                         </div>
                     </div>
-
-                    <div class="w-1/2 image-part transition-all duration-300">
-                        <img
-                            src="../assets/img/img1-yoga.jpg"
-                            alt="Femme en méditation"
-                            class="h-full w-full object-cover"
-                        />
-                    </div>
                 </div>
-
-                <div
-                    class="absolute inset-0 bg-[#7096D1] text-white p-6 z-20 hidden clicked-content flex flex-col justify-center text-sm space-y-2"
-                >
-                    <p>
-                        <span class="text-pink-300 font-bold"
-                            >Assieds-toi en tailleur</span
-                        > ou sur une chaise, dos droit.
-                    </p>
-                    <li>
-                        <ul>
-                            Inspire lentement par le nez en comptant jusqu’à <span
-                                class="text-pink-300 font-bold">4</span
-                            >.
-                        </ul>
-                        <ul>
-                            Retiens le souffle pendant <span
-                                class="text-pink-300 font-bold">2 secondes</span
-                            >.
-                        </ul>
-                        <ul>
-                            Expire doucement par la bouche en comptant jusqu’à <span
-                                class="text-pink-300 font-bold">6</span
-                            >.
-                        </ul>
-                    </li>
-                    <p>Répète 5 fois pour te recentrer.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="carousel3-slide">
-            <div
-                class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
-                onclick="toggleCard(this)"
-            >
-                <div class="flex w-full h-full">
-                    <div
-                        class="bg-[#7096D1] text-white p-6 w-1/2 relative z-10 flex flex-col justify-center default-content transition-all duration-300"
-                    >
-                        <h3 class="text-xl font-bold z-20">
-                            Posture de l’enfant (2 min)
-                        </h3>
-                        <p class="text-sm mt-2 z-20">
-                            Une position de repos profonde qui relâche les
-                            tensions du dos et apaise l'esprit.
-                        </p>
-
-                        <div
-                            class="absolute top-2 left-3 text-[100px] font-extrabold text-transparent z-0 leading-none"
-                            style="-webkit-text-stroke: 2px white; opacity: 0.3;"
-                        >
-                            2
-                        </div>
-                    </div>
-
-                    <div class="w-1/2 image-part transition-all duration-300">
-                        <img
-                            src="../assets/img/img2-yoga.jpg"
-                            alt="Femme en méditation"
-                            class="h-full w-full object-cover"
-                        />
-                    </div>
-                </div>
-
-                <div
-                    class="absolute inset-0 bg-[#7096D1] text-white p-6 z-20 hidden clicked-content flex flex-col justify-center text-sm space-y-2"
-                >
-                    <li>
-                        <ul>Mets-toi à genoux, fesses sur les talons.</ul>
-                        <ul>
-                            Allonge le buste vers l’avant, bras tendus devant ou
-                            le long du corps.
-                        </ul>
-                        <ul>Relâche la tête au sol.</ul>
-                    </li>
-                </div>
-            </div>
-        </div>
-
-        <div class="carousel3-slide">
-            <div
-                class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
-                onclick="toggleCard(this)"
-            >
-                <div class="flex w-full h-full">
-                    <div
-                        class="bg-[#7096D1] text-white p-6 w-1/2 relative z-10 flex flex-col justify-center default-content transition-all duration-300"
-                    >
-                        <h3 class="text-xl font-bold z-20">
-                            Chat-vache (2 min)
-                        </h3>
-                        <p class="text-sm mt-2 z-20">
-                            Un enchaînement doux qui assouplit la colonne et
-                            synchronise respiration et mouvement.
-                        </p>
-
-                        <div
-                            class="absolute top-2 left-3 text-[100px] font-extrabold text-transparent z-0 leading-none"
-                            style="-webkit-text-stroke: 2px white; opacity: 0.3;"
-                        >
-                            3
-                        </div>
-                    </div>
-
-                    <div class="w-1/2 image-part transition-all duration-300">
-                        <img
-                            src="../assets/img/img3-yoga.jpg"
-                            alt="Femme en méditation"
-                            class="h-full w-full object-cover"
-                        />
-                    </div>
-                </div>
-
-                <div
-                    class="absolute inset-0 bg-[#7096D1] text-white p-6 z-20 hidden clicked-content flex flex-col justify-center text-sm space-y-2"
-                >
-                    <li>
-                        <ul>Mains et genoux au sol (position “table”).</ul>
-                        <ul>
-                            Inspire : creuse le dos, regarde vers le ciel
-                            (vache).
-                        </ul>
-                        <ul>
-                            Expire : arrondis le dos, rentre le menton (chat).
-                        </ul>
-                    </li>
-                    <p>Répète lentement 8 à 10 fois</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="carousel3-slide">
-            <div
-                class="relative flex max-w-lg h-56 rounded-2xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300"
-                onclick="toggleCard(this)"
-            >
-                <div class="flex w-full h-full">
-                    <div
-                        class="bg-[#7096D1] text-white p-6 w-1/2 relative z-10 flex flex-col justify-center default-content transition-all duration-300"
-                    >
-                        <h3 class="text-xl font-bold z-20">
-                            Torsion allongée (2 min)
-                        </h3>
-                        <p class="text-sm mt-2 z-20">
-                            Une posture qui masse les organes internes et libère
-                            les tensions lombaires.
-                        </p>
-
-                        <div
-                            class="absolute top-2 left-3 text-[100px] font-extrabold text-transparent z-0 leading-none"
-                            style="-webkit-text-stroke: 2px white; opacity: 0.3;"
-                        >
-                            4
-                        </div>
-                    </div>
-
-                    <div class="w-1/2 image-part transition-all duration-300">
-                        <img
-                            src="../assets/img/img4-yoga.jpg"
-                            alt="Femme en méditation"
-                            class="h-full w-full object-cover"
-                        />
-                    </div>
-                </div>
-
-                <div
-                    class="absolute inset-0 bg-[#7096D1] text-white p-6 z-20 hidden clicked-content flex flex-col justify-center text-sm space-y-2"
-                >
-                    <li>
-                        <ul>Allonge-toi sur le dos, bras en croix.</ul>
-                        <ul>
-                            Ramène les genoux vers la poitrine, puis laisse-les
-                            tomber sur un côté.
-                        </ul>
-                        <ul>Tourne la tête de l’autre côté.</ul>
-                    </li>
-                    <p>1 min de chaque côté</p>
-                </div>
-            </div>
-        </div>
+            ))
+        }
     </div>
-
-    <button class="carousel3-btn carousel3-btn-left" onclick="prevSlide()"
-        >‹</button
-    >
-    <button class="carousel3-btn carousel3-btn-right" onclick="nextSlide()"
-        >›</button
-    >
 </div>
 
-<script is:inline>
-    let index = 0;
-    const track = document.getElementById("carousel3-track");
-    const total = track.children.length;
-
-    function updateSlide() {
-        track.style.transform = `translateX(-${index * 100}%)`;
+<style is:global>
+    .flip-card {
+        perspective: 1000px;
     }
 
-    function prevSlide() {
-        index = (index - 1 + total) % total;
-        updateSlide();
+    .flip-card-inner {
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        position: relative;
     }
 
-    function nextSlide() {
-        index = (index + 1) % total;
-        updateSlide();
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
     }
 
-    function toggleCard(card) {
-        const defaultContent = card.querySelector(".default-content");
-        const imagePart = card.querySelector(".image-part");
-        const clickedContent = card.querySelector(".clicked-content");
-
-        const isActive = !clickedContent.classList.contains("hidden");
-
-        if (isActive) {
-            clickedContent.classList.add("hidden");
-            defaultContent.classList.remove("hidden");
-            imagePart.classList.remove("hidden");
-        } else {
-            clickedContent.classList.remove("hidden");
-            defaultContent.classList.add("hidden");
-            imagePart.classList.add("hidden");
-        }
+    .flip-card-front,
+    .flip-card-back {
+        backface-visibility: hidden;
     }
-</script>
+
+    .flip-card-back {
+        transform: rotateY(180deg);
+    }
+
+    .text-ellipsis {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .whitespace-normal {
+        white-space: normal;
+    }
+</style>
