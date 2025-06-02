@@ -18,17 +18,39 @@ const temoignages = await pb.collection("temoignages").getFullList({
     .temoignage {
         background-color: #2c2c69;
         border-radius: 0.75rem;
-        padding: 1rem;
-        margin-bottom: 1rem;
+        padding: 1.5rem;
+        text-align: left;
+        display: none;
     }
 
-    h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
+    .temoignage.active {
+        display: block;
     }
 
-    button {
-        margin: 1rem 0;
+    .nav-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .nav-btn {
+        background-color: white;
+        color: #2c2c5d;
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.75rem;
+        font-weight: bold;
+        font-size: 1.25rem;
+        transition: all 0.3s;
+    }
+
+    .nav-btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+
+    .toggle-form-btn {
+        margin-top: 2rem;
         padding: 0.75rem 1.5rem;
         background-color: #06064f;
         color: white;
@@ -39,7 +61,7 @@ const temoignages = await pb.collection("temoignages").getFullList({
         transition: 0.3s;
     }
 
-    button:hover {
+    .toggle-form-btn:hover {
         background-color: white;
         color: #06064f;
     }
@@ -48,13 +70,14 @@ const temoignages = await pb.collection("temoignages").getFullList({
         background-color: #2c2c69;
         padding: 2rem;
         border-radius: 0.75rem;
-        margin-top: 1rem;
+        margin-top: 2rem;
     }
 
     label {
         display: block;
         margin-top: 1rem;
         font-weight: 500;
+        text-align: left;
     }
 
     input,
@@ -73,18 +96,32 @@ const temoignages = await pb.collection("temoignages").getFullList({
 <div class="container">
     <h2>Les témoignages des autres utilisateurs</h2>
 
+    <!-- Boutons navigation -->
+    <div class="nav-wrapper">
+        <button id="prevBtn" class="nav-btn" disabled>←</button>
+        <button id="nextBtn" class="nav-btn">→</button>
+    </div>
+
+    <!-- Affichage d’un seul témoignage -->
     {
-        temoignages.map((t) => (
-            <div class="temoignage">
+        temoignages.map((t, index) => (
+            <div
+                class={`temoignage ${index === 0 ? "active" : ""}`}
+                data-index={index}
+            >
                 <strong>{t.titre}</strong>
                 <p>{t.message}</p>
-                <small>{new Date(t.created).toLocaleDateString()}</small>
+                <small>{new Date(t.created).toLocaleDateString("fr-FR")}</small>
             </div>
         ))
     }
 
-    <button id="toggle-form">Écrire un témoignage</button>
+    <!-- Bouton pour afficher formulaire -->
+    <button class="toggle-form-btn" id="toggle-form">
+        Écrire un témoignage
+    </button>
 
+    <!-- Formulaire -->
     <form id="contact-form" style="display: none;">
         <label for="titre">Titre du témoignage</label>
         <input type="text" id="titre" name="titre" required />
@@ -92,7 +129,24 @@ const temoignages = await pb.collection("temoignages").getFullList({
         <label for="message">Mon témoignage</label>
         <textarea id="message" name="message" rows="5" required></textarea>
 
-        <button type="submit">ENVOYER</button>
+        <button
+            type="submit"
+            style="
+                margin-top: 2rem;
+                padding: 0.75rem 1.5rem;
+                background-color: #06064f;
+                color: white;
+                border: 1px solid white;
+                border-radius: 0.5rem;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: 0.3s;
+            "
+            onmouseover="this.style.backgroundColor='white'; this.style.color='#06064f';"
+            onmouseout="this.style.backgroundColor='#06064f'; this.style.color='white';"
+        >
+            ENVOYER
+        </button>
     </form>
 </div>
 
@@ -103,4 +157,35 @@ const temoignages = await pb.collection("temoignages").getFullList({
         const form = document.getElementById("contact-form");
         form.style.display = form.style.display === "none" ? "block" : "none";
     });
+
+    const temoignages = Array.from(document.querySelectorAll(".temoignage"));
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    let currentIndex = 0;
+
+    function updateTemoignageView() {
+        temoignages.forEach((el, i) => {
+            el.classList.toggle("active", i === currentIndex);
+        });
+
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === temoignages.length - 1;
+    }
+
+    prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateTemoignageView();
+        }
+    });
+
+    nextBtn.addEventListener("click", () => {
+        if (currentIndex < temoignages.length - 1) {
+            currentIndex++;
+            updateTemoignageView();
+        }
+    });
+
+    updateTemoignageView();
 </script>
