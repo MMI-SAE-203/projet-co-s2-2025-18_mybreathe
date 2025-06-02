@@ -94,15 +94,13 @@ const temoignages = await pb.collection("temoignages").getFullList({
 </style>
 
 <div class="container">
-    <h2>Les témoignages des autres utilisateurs</h2>
+    <h3>Les témoignages des autres utilisateurs</h3>
 
-    <!-- Boutons navigation -->
     <div class="nav-wrapper">
         <button id="prevBtn" class="nav-btn" disabled>←</button>
         <button id="nextBtn" class="nav-btn">→</button>
     </div>
 
-    <!-- Affichage d’un seul témoignage -->
     {
         temoignages.map((t, index) => (
             <div
@@ -116,12 +114,10 @@ const temoignages = await pb.collection("temoignages").getFullList({
         ))
     }
 
-    <!-- Bouton pour afficher formulaire -->
     <button class="toggle-form-btn" id="toggle-form">
         Écrire un témoignage
     </button>
 
-    <!-- Formulaire -->
     <form id="contact-form" style="display: none;">
         <label for="titre">Titre du témoignage</label>
         <input type="text" id="titre" name="titre" required />
