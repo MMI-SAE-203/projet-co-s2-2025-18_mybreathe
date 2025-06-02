@@ -1,0 +1,60 @@
+---
+
+---
+<style>
+    form {
+        background-color: #2c2c69;
+        padding: 2rem;
+        border-radius: 0.75rem;
+        max-width: 500px;
+        margin: auto;
+    }
+
+    label {
+        display: block;
+        margin-top: 1rem;
+        color: white;
+        font-weight: 500;
+    }
+
+    input,
+    textarea {
+        color: black;
+        background-color: white;
+        width: 100%;
+        padding: 0.75rem;
+        margin-top: 0.25rem;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+    }
+
+    button {
+        margin-top: 2rem;
+        padding: 0.75rem 1.5rem;
+        background-color: #06064f;
+        color: white;
+        border: 1px solid white;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: white;
+        color: #06064f;
+    }
+</style>
+
+<form id="contact-form">
+    <label for="titre">Titre du témoignage</label>
+    <input type="text" id="titre" name="titre" required />
+
+    <label for="message">Mon témoignage</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">ENVOYER</button>
+</form>
+
+<script type="module" src="/src/scripts/formTemoignage.js"></script>
