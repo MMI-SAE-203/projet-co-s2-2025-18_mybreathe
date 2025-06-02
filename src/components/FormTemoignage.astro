@@ -1,36 +1,34 @@
 ---
+import PocketBase from "pocketbase";
 
+const pb = new PocketBase("http://127.0.0.1:8090");
+const temoignages = await pb.collection("temoignages").getFullList({
+    sort: "-created",
+});
 ---
+
 <style>
-    form {
-        background-color: #2c2c69;
+    .container {
+        max-width: 700px;
+        margin: 0 auto;
         padding: 2rem;
-        border-radius: 0.75rem;
-        max-width: 500px;
-        margin: auto;
-    }
-
-    label {
-        display: block;
-        margin-top: 1rem;
         color: white;
-        font-weight: 500;
     }
 
-    input,
-    textarea {
-        color: black;
-        background-color: white;
-        width: 100%;
-        padding: 0.75rem;
-        margin-top: 0.25rem;
-        border: none;
-        border-radius: 0.5rem;
-        font-size: 1rem;
+    .temoignage {
+        background-color: #2c2c69;
+        border-radius: 0.75rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     button {
-        margin-top: 2rem;
+        margin: 1rem 0;
         padding: 0.75rem 1.5rem;
         background-color: #06064f;
         color: white;
@@ -45,16 +43,64 @@
         background-color: white;
         color: #06064f;
     }
+
+    form {
+        background-color: #2c2c69;
+        padding: 2rem;
+        border-radius: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    label {
+        display: block;
+        margin-top: 1rem;
+        font-weight: 500;
+    }
+
+    input,
+    textarea {
+        color: black;
+        background-color: white;
+        width: 100%;
+        padding: 0.75rem;
+        margin-top: 0.25rem;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+    }
 </style>
 
-<form id="contact-form">
-    <label for="titre">Titre du témoignage</label>
-    <input type="text" id="titre" name="titre" required />
+<div class="container">
+    <h2>Les témoignages des autres utilisateurs</h2>
 
-    <label for="message">Mon témoignage</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
+    {
+        temoignages.map((t) => (
+            <div class="temoignage">
+                <strong>{t.titre}</strong>
+                <p>{t.message}</p>
+                <small>{new Date(t.created).toLocaleDateString()}</small>
+            </div>
+        ))
+    }
 
-    <button type="submit">ENVOYER</button>
-</form>
+    <button id="toggle-form">Écrire un témoignage</button>
+
+    <form id="contact-form" style="display: none;">
+        <label for="titre">Titre du témoignage</label>
+        <input type="text" id="titre" name="titre" required />
+
+        <label for="message">Mon témoignage</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">ENVOYER</button>
+    </form>
+</div>
 
 <script type="module" src="/src/scripts/formTemoignage.js"></script>
+
+<script>
+    document.getElementById("toggle-form").addEventListener("click", () => {
+        const form = document.getElementById("contact-form");
+        form.style.display = form.style.display === "none" ? "block" : "none";
+    });
+</script>
