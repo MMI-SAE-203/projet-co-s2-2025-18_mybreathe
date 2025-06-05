@@ -4,6 +4,7 @@ import Carousel from "../components/Carousel.astro";
 import FormContact from "../components/FormContact.astro";
 import "../styles/global.css";
 
+import accueil from "../assets/img/acceuil_personnage1.svg?url";
 ---
 
 <Layout>
@@ -14,7 +15,7 @@ import "../styles/global.css";
 			<h1 class="text-6xl font-bold">2BeBetter</h1>
 			<img
 				class="max-w-170"
-				src="/src/assets/img/acceuil_personnage1.svg"
+				src={accueil}
 				alt="Personnages"
 			/>
 		</div>
