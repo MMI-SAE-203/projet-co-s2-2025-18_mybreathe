@@ -1,8 +1,18 @@
 {
-  "cors": {
-    "enabled": true,
-    "allowOrigin": ["*"],  
-    "allowMethods": ["GET", "POST", "PATCH", "DELETE"],
-    "allowHeaders": ["Authorization", "Content-Type"]
-  }
+    "cors": {
+        "enabled": true,
+        "allowOrigin": [
+            "https://2bebetter.netlify.app/"
+        ],
+        "allowMethods": [
+            "GET",
+            "POST",
+            "PATCH",
+            "DELETE"
+        ],
+        "allowHeaders": [
+            "Authorization",
+            "Content-Type"
+        ]
+    }
 }
