@@ -4,7 +4,10 @@ import Carousel from "../components/Carousel.astro";
 import FormContact from "../components/FormContact.astro";
 import "../styles/global.css";
 
-import Personnages from "../assets/img/acceuil_personnage1.svg";
+const Personnages = new URL(
+	"../assets/img/acceuil_personnage1.svg",
+	import.meta.url,
+).href;
 ---
 
 <Layout>
