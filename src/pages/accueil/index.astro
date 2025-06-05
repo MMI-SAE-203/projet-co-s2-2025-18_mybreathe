@@ -1,5 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+
+import Moodtracker from "../assets/img/accueil_moodtracker.svg?url";
+import accueil from "../assets/img/acceuil_personnage1.svg?url";
 ---
 
 <Layout>
@@ -13,7 +16,7 @@ import Layout from "../../layouts/Layout.astro";
         </h1>
 
         <img
-            src="/src/assets/img/acceuil_personnage1.svg"
+            src={accueil}
             alt="Groupe de personnes"
             class="relative max-w-[100%] sm:max-w-xl"
         />
@@ -61,10 +64,7 @@ import Layout from "../../layouts/Layout.astro";
 
     <div class="my-20 flex justify-center">
         <a href="/moodtracker" aria-label="moodtracker">
-            <img
-                src="/src/assets/icones/accueil_moodtracker.svg"
-                alt="tableau moodtracker"
-            />
+            <img src={Moodtracker} alt="tableau moodtracker" />
         </a>
     </div>
 
