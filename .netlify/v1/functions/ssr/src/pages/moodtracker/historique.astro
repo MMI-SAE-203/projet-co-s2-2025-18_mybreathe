@@ -1,0 +1,125 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+import { allHumeurs } from "../../scripts/backend.mjs";
+
+const moodHistory = await allHumeurs();
+
+// Grouper les humeurs par mois
+function groupByMonth(humeurs) {
+    const grouped = {};
+    for (const humeur of humeurs) {
+        const date = new Date(humeur.created);
+        const key = date.toLocaleDateString("fr-FR", {
+            year: "numeric",
+            month: "long",
+        });
+
+        if (!grouped[key]) {
+            grouped[key] = [];
+        }
+        grouped[key].push(humeur);
+    }
+
+    return grouped;
+}
+
+const groupedHumeurs = groupByMonth(moodHistory);
+const months = Object.keys(groupedHumeurs);
+---
+
+<Layout>
+    <div class="relative flex flex-col items-center p-4 text-white">
+        <h2 id="month-title" class="text-2xl mb-8 transition-all duration-300">
+            {months[0]}
+        </h2>
+
+        <div class="flex items-center gap-4 mb-6">
+            <button
+                id="prevBtn"
+                class="bg-white text-[#2c2c5d] px-4 py-2 rounded-xl font-bold disabled:opacity-30"
+                disabled
+            >
+                ←
+            </button>
+            <button
+                id="nextBtn"
+                class="bg-white text-[#2c2c5d] px-4 py-2 rounded-xl font-bold"
+            >
+                →
+            </button>
+        </div>
+
+        <div id="month-lists" class="w-full max-w-md">
+            {
+                months.map((month, index) => (
+                    <ul
+                        class={`month-list ${index !== 0 ? "hidden" : ""} list-none p-0 transition-opacity duration-500`}
+                        data-month={month}
+                    >
+                        {groupedHumeurs[month]
+                            .sort(
+                                (a, b) =>
+                                    new Date(a.created) - new Date(b.created),
+                            )
+                            .map((mood) => (
+                                <li
+                                    class="flex justify-between items-center bg-[#2c2c5d] p-4 rounded-2xl mb-4 text-white text-lg shadow-md"
+                                    key={mood.id}
+                                >
+                                    <div class="bg-white text-[#2c2c5d] py-2 px-3 rounded-xl font-bold text-base">
+                                        {new Date(
+                                            mood.created,
+                                        ).toLocaleDateString("fr-FR")}
+                                    </div>
+                                    <div class="text-2xl">{mood.humeur}</div>
+                                </li>
+                            ))}
+                    </ul>
+                ))
+            }
+        </div>
+
+        <div class="my-10">
+            <a
+                class="bg-gray-700 text-white px-4 py-2 rounded shadow mx-6"
+                href="/moodtracker">Retour au Moodtracker</a
+            >
+        </div>
+    </div>
+
+    <script type="module">
+        const months = Array.from(document.querySelectorAll(".month-list"));
+        const monthTitle = document.getElementById("month-title");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        let currentIndex = 0;
+
+        function updateMonthView() {
+            months.forEach((el, i) => {
+                el.classList.toggle("hidden", i !== currentIndex);
+            });
+
+            const currentMonth = months[currentIndex].dataset.month;
+            monthTitle.textContent = currentMonth;
+
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === months.length - 1;
+        }
+
+        prevBtn.addEventListener("click", () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateMonthView();
+            }
+        });
+
+        nextBtn.addEventListener("click", () => {
+            if (currentIndex < months.length - 1) {
+                currentIndex++;
+                updateMonthView();
+            }
+        });
+    </script>
+</Layout>

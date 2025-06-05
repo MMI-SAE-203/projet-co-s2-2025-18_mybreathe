@@ -1,0 +1,66 @@
+import { e as createComponent, i as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_CgQgV4Hd.mjs';
+import 'kleur/colors';
+import 'html-escaper';
+import { $ as $$Layout } from '../chunks/Layout_CXX1l6fb.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$Index = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<section class="relative bg-[#06064F] h-screen flex items-center justify-center overflow-hidden"> <h1 class="absolute top-60 text-[64px] sm:text-[96px] font-bold text-white z-0 w-full text-center">
+2BeBetter
+</h1> <img src="/src/assets/img/acceuil_personnage1.svg" alt="Groupe de personnes" class="relative max-w-[100%] sm:max-w-xl"> <div class="absolute bottom-40 left-1/2 transform -translate-x-1/2 animate-bounce text-white text-6xl">
+↓
+</div> </section> <div> <h2 class="text-[36px] font-bold mb-8">
+Bienvenue sur <span class="text-[#FCB2D8]">2BeBetter</span>,
+</h2> <p class="mb-8">
+une <span class="font-bold text-[#FCB2D8]">plateforme d'entraide</span> pour les personnes victimes de <span class="font-bold text-[#FCB2D8]">harcèlement</span> sous toutes ses formes : moral, physique, scolaire, de rue, au travail,
+            sexuel ou en ligne.<br>
+Son objectif est d’offrir un <span class="font-bold text-[#FCB2D8]">espace sûr</span> où chacun peut s’exprimer librement et trouver du <span class="font-bold text-[#FCB2D8]">soutien</span>…
+</p> <p>
+Nous sommes un site qui ne se contente pas d’informer, mais qui
+<span class="font-bold text-[#FCB2D8]">accompagne</span> vraiment la
+            victime avec des <span class="font-bold text-[#FCB2D8]">outils interactifs</span> et un <span class="font-bold text-[#FCB2D8]">espace rassurant</span>.
+</p> </div> <div class="my-20"> <h2 class="text-[36px] font-bold">Fonctionnalités</h2> <hr class="border-t-2 border-white-300"> </div> <div class="my-20 flex justify-center"> <a href="/moodtracker" aria-label="moodtracker"> <img src="/src/assets/icones/accueil_moodtracker.svg" alt="tableau moodtracker"> </a> </div> <div class="bg-[#06064F] flex items-center justify-center px-4 pb-30 pt-20"> <div class="relative w-full max-w-6xl"> <div class="bg-white rounded-lg p-8 shadow-lg relative z-0"> <div class="text-left"> <h2 class="text-[#06064F] text-2xl sm:text-3xl font-bold mb-2">
+Besoin de se sentir mieux ?
+</h2> <p class="text-[#06064F] mb-4">
+si oui, accédez à notre...
+</p> <a href="/detente" class="inline-block bg-[#FCB2D8] text-[#06064F] font-bold px-4 py-2 rounded-full">
+COIN DÉTENTE
+</a> </div> </div> <img src="/src/assets/img/exercices_respiration_accueil.webp" alt="Personnage qui médite" class="absolute bottom-0 translate-y-1/2 right-6 w-32 sm:w-40 z-10"> </div> </div> <section class="bg-[#06064F] text-white px-4 pb-40 pt-10"> <div class="max-w-4xl mx-auto space-y-6"> <div class="bg-[#1E1E7A] rounded-lg p-4 shadow-md"> <span class="inline-block bg-white text-[#06064F] font-semibold px-3 py-1 rounded-full mb-2">
+Thomas, 16 ans
+</span> <p class="text-white">
+Je m’appelle Thomas, j’ai 16 ans, et pendant presque toute
+                    mon année de seconde, j’ai été harcelé par un groupe de
+                    camarades. Au début, c’était "juste" des moqueries sur ma
+                    façon de m’habiller ou de parler. Puis, ils ont commencé à
+                    m’exclure des groupes de travail, à changer de table à la
+                    cantine quand j’arrivais, à créer un groupe WhatsApp où ils
+                    m’insultaient derrière mon dos.
+</p> </div> <div class="bg-[#1E1E7A] rounded-lg p-4 shadow-md"> <span class="inline-block bg-white text-[#06064F] font-semibold px-3 py-1 rounded-full mb-2">
+Sophie, 34 ans
+</span> <p class="text-white">
+Je suis Sophie, 34 ans, assistante administrative dans une
+                    PME. Mon harcèlement a commencé insidieusement : des
+                    remarques sur mon travail "pas assez rapide", des réflexions
+                    devant mes collègues comme quoi j’étais "trop émotive". Mon
+                    responsable me donnait des tâches floues, puis me reprochait
+                    de ne pas avoir bien compris. Parfois, il m’ignorait
+                    totalement, d’autres fois, il me mettait une pression
+                    énorme.
+</p> </div> <div class="text-center mt-6"> <a href="/temoignages" class="inline-block bg-[#FCB2D8] text-[#06064F] font-bold px-6 py-2 rounded-full">
+PLUS DE TÉMOIGNAGES
+</a> </div> </div> </section> ` })}`;
+}, "/Users/adamjuline/Desktop/IUT/S2/projet-co-s2-2025-18_mybreathe/src/pages/accueil/index.astro", void 0);
+
+const $$file = "/Users/adamjuline/Desktop/IUT/S2/projet-co-s2-2025-18_mybreathe/src/pages/accueil/index.astro";
+const $$url = "/accueil";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+    __proto__: null,
+    default: $$Index,
+    file: $$file,
+    url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

@@ -1,0 +1,131 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Connexion</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-image: url("/oreole.png");
+                background-size: cover;
+                background-position: center;
+                opacity: 1;
+                z-index: -1;
+            }
+        </style>
+    </head>
+    <body
+        class="min-h-screen flex items-center justify-center font-sans relative bg-gray-800"
+    >
+
+        <div class="w-full max-w-md text-white px-8 py-10 rounded-lg z-10">
+            <div>
+                <img
+                    src="/src/assets/icones/logo.svg"
+                    alt="Logo 2BeBetter"
+                    class="w-40 mx-auto"
+                />
+            </div>
+            <div class="text-center mb-6">
+                <h1 class="text-3xl font-bold">CONNEXION</h1>
+            </div>
+            <div
+                id="welcome-message"
+                class="hidden text-center text-lg font-semibold text-green-600 mb-4"
+            >
+            </div>
+
+            <form class="space-y-4">
+                <div>
+                    <label for="email" class="text-sm font-light text-gray-400"
+                        >Email</label
+                    >
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="anything@gmail.com"
+                        class="mt-1 w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-300"
+                    />
+                </div>
+                <div>
+                    <label
+                        for="password"
+                        class="text-sm font-light text-gray-400"
+                        >Mot de passe</label
+                    >
+                    <div class="relative">
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="motdepasse123"
+                            class="mt-1 w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-300 pr-10"
+                        />
+                    </div>
+                </div>
+
+                <button
+                    type="submit"
+                    class="w-full bg-pink-300 py-2 rounded-full font-semibold text-gray-800 hover:opacity-90"
+                    >Se connecter</button
+                >
+            </form>
+        </div>
+    </body>
+
+    <div class="absolute bottom-4 left-6 text-sm text-gray-400 pb-8">
+        Pas encore de compte ? <a href="/inscription" class="underline"
+            >S’inscrire</a
+        >
+    </div>
+
+    <script type="module">
+  import PocketBase from "https://esm.sh/pocketbase";
+
+  const pb = new PocketBase("https://pocketbase-2bebetter.juline-adam.fr");
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    const welcomeMessage = document.querySelector("#welcome-message");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = document.querySelector("#email").value;
+      const password = document.querySelector("#password").value;
+
+      try {
+        const authData = await pb
+          .collection("users")
+          .authWithPassword(email, password);
+
+        const user = pb.authStore.model;
+
+        document.cookie = `pb_auth=${pb.authStore.token}; path=/; SameSite=Lax`;
+
+        form.classList.add("hidden");
+        welcomeMessage.classList.remove("hidden");
+        welcomeMessage.innerText = `Bienvenue, ${user.name} !`;
+
+        setTimeout(() => {
+          window.location.href = "/accueil";
+        }, 1000);
+      } catch (err) {
+        alert("Erreur de connexion : " + err.message);
+      }
+    });
+  });
+</script>

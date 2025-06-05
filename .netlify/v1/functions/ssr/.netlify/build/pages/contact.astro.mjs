@@ -1,0 +1,27 @@
+import { e as createComponent, i as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_CgQgV4Hd.mjs';
+import 'kleur/colors';
+import 'html-escaper';
+import { $ as $$Layout } from '../chunks/Layout_CXX1l6fb.mjs';
+/* empty css                                 */
+import { $ as $$FormContact } from '../chunks/FormContact_i1HMltGp.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$Index = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<h1>NOUS CONTACTER</h1> <div> <p>
+Vous pouvez nous <span class="font-bold text-[#FCB2D8]">contacter</span> en remplissant le <span class="font-bold text-[#FCB2D8]">formulaire</span> ci-dessous ou en utilisant directement nos <span class="font-bold text-[#FCB2D8]">coordonnées</span> indiquées plus bas sur cette page.
+</p> </div> <div class="my-20"> ${renderComponent($$result2, "FormContact", $$FormContact, {})} </div> <div class="my-20"> <h3 class="font-bold">Nos coordonnées :</h3> <div class="mt-10 flex flex-col lg:flex-row lg:justify-between lg:items-center lg:mx-20"> <div class="flex flex-col mb-8 lg:items-center"> <p class="font-bold text-[#FCB2D8]">Adresse postale :</p> <p>4 Place Lucien Tharradin, 25200 Montbéliard</p> </div> <div class="flex flex-col mb-8 lg:items-center"> <p class="font-bold text-[#FCB2D8]">Adresse mail :</p> <p>contact-2bebetter@gmail.com</p> </div> <div class="flex flex-col mb-8 lg:items-center"> <p class="font-bold text-[#FCB2D8]">Téléphone :</p> <p>03.12.34.56.78</p> </div> </div> </div> <div> <h3>Nos réseaux sociaux :</h3> <div class="flex flex-col gap-4 mt-5"> <div class="flex items-center gap-4 text-2xl"> <a href="https://instagram.com" class="hover:text-pink-300 transition"> <img src="/src/assets/icones/insta.svg" alt="Icone Instagram" class="w-6 h-6"> </a> <p>@ 2BeBetter</p> </div> <div class="flex items-center gap-4 text-2xl"> <a href="https://facebook.com" class="hover:text-pink-300 transition"> <img src="/src/assets/icones/facebook.svg" alt="Icone Facebook" class="w-6 h-6"> </a> <p>@ 2BeBetter</p> </div> <div class="flex items-center gap-4 text-2xl"> <a href="https://tiktok.com" class="hover:text-pink-300 transition"> <img src="/src/assets/icones/tiktok.svg" alt="Icone Tiktok" class="w-6 h-6"> </a> <p>@ 2BeBetter</p> </div> <div class="flex items-center gap-4 text-2xl"> <a href="https://linkedin.com" class="hover:text-pink-300 transition"> <img src="/src/assets/icones/linkedin.svg" alt="Icone LinkedIn" class="w-6 h-6"> </a> <p>@ 2BeBetter</p> </div> </div> </div> ` })}`;
+}, "/Users/adamjuline/Desktop/IUT/S2/projet-co-s2-2025-18_mybreathe/src/pages/contact/index.astro", void 0);
+
+const $$file = "/Users/adamjuline/Desktop/IUT/S2/projet-co-s2-2025-18_mybreathe/src/pages/contact/index.astro";
+const $$url = "/contact";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+    __proto__: null,
+    default: $$Index,
+    file: $$file,
+    url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
