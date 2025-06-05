@@ -1,4 +1,4 @@
-import PocketBase from 'pocketbase';
+import PocketBase from "https://esm.sh/pocketbase";
 
 const pb = new PocketBase('https://pocketbase-2bebetter.juline-adam.fr:443');
 
