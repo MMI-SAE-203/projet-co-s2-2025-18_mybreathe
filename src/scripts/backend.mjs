@@ -31,3 +31,9 @@ export async function allHumeurs() {
     const allRecords = await pb.collection('moodtracker').getFullList();
     return allRecords;
 }
+
+//Fonction pour se connecter
+export async function connexion(email, password) {
+    const authData = await pb.collection('users').authWithPassword(email, password);
+    return authData;
+}
