@@ -25,3 +25,4 @@ form.addEventListener('submit', async (e) => {
         alert('Erreur lors de l\'envoi du témoignage.');
     }
 }); 
+
