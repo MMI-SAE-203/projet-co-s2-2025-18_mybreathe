@@ -2,7 +2,7 @@ import PocketBase from 'pocketbase';
 
 const pb = new PocketBase('https://pocketbase-2bebetter.juline-adam.fr:443');
 
-// Fonction pour ajouter une humeur
+
 export async function addMood(formData) {
     try {
         const humeur = formData.get('humeur');
@@ -26,14 +26,7 @@ export async function addMood(formData) {
     }
 }
 
-// Fonction pour récupérer les humeurs
 export async function allHumeurs() {
     const allRecords = await pb.collection('moodtracker').getFullList();
     return allRecords;
-}
-
-//Fonction pour se connecter
-export async function connexion(email, password) {
-    const authData = await pb.collection('users').authWithPassword(email, password);
-    return authData;
 }

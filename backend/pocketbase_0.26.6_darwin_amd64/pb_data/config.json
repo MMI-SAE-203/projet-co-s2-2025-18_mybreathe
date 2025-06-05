@@ -1,0 +1,8 @@
+{
+  "cors": {
+    "enabled": true,
+    "allowOrigin": ["*"],  
+    "allowMethods": ["GET", "POST", "PATCH", "DELETE"],
+    "allowHeaders": ["Authorization", "Content-Type"]
+  }
+}

@@ -31,6 +31,7 @@ import Layout from "../../layouts/Layout.astro";
     <body
         class="min-h-screen flex items-center justify-center font-sans relative bg-gray-800"
     >
+
         <div class="w-full max-w-md text-white px-8 py-10 rounded-lg z-10">
             <div>
                 <img
@@ -92,42 +93,39 @@ import Layout from "../../layouts/Layout.astro";
     </div>
 
     <script type="module">
-        import PocketBase from "https://esm.sh/pocketbase";
+  import PocketBase from "https://esm.sh/pocketbase";
 
-        const pb = new PocketBase(
-            "https://pocketbase-2bebetter.juline-adam.fr",
-        );
+  const pb = new PocketBase("https://pocketbase-2bebetter.juline-adam.fr");
 
-        window.addEventListener("DOMContentLoaded", () => {
-            const form = document.querySelector("form");
-            const welcomeMessage = document.querySelector("#welcome-message");
+  window.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    const welcomeMessage = document.querySelector("#welcome-message");
 
-            form.addEventListener("submit", async (e) => {
-                e.preventDefault();
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-                const email = document.querySelector("#email").value;
-                const password = document.querySelector("#password").value;
+      const email = document.querySelector("#email").value;
+      const password = document.querySelector("#password").value;
 
-                try {
-                    const authData = await pb
-                        .collection("users")
-                        .authWithPassword(email, password);
+      try {
+        const authData = await pb
+          .collection("users")
+          .authWithPassword(email, password);
 
-                    const user = pb.authStore.model;
+        const user = pb.authStore.model;
 
-                    document.cookie = `pb_auth=${pb.authStore.token}; path=/; SameSite=Lax`;
+        document.cookie = `pb_auth=${pb.authStore.token}; path=/; SameSite=Lax`;
 
-                    form.classList.add("hidden");
-                    welcomeMessage.classList.remove("hidden");
-                    welcomeMessage.innerText = `Bienvenue, ${user.name} !`;
+        form.classList.add("hidden");
+        welcomeMessage.classList.remove("hidden");
+        welcomeMessage.innerText = `Bienvenue, ${user.name} !`;
 
-                    setTimeout(() => {
-                        window.location.href = "/accueil";
-                    }, 1000);
-                } catch (err) {
-                    alert("Erreur de connexion : " + err.message);
-                }
-            });
-        });
-    </script>
-</html>
+        setTimeout(() => {
+          window.location.href = "/accueil";
+        }, 1000);
+      } catch (err) {
+        alert("Erreur de connexion : " + err.message);
+      }
+    });
+  });
+</script>
