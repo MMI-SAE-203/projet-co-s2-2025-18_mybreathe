@@ -4,10 +4,6 @@ import Carousel from "../components/Carousel.astro";
 import FormContact from "../components/FormContact.astro";
 import "../styles/global.css";
 
-const Personnages = new URL(
-	"../assets/img/acceuil_personnage1.svg",
-	import.meta.url,
-).href;
 ---
 
 <Layout>
@@ -16,7 +12,11 @@ const Personnages = new URL(
 			class="flex flex-col-reverse lg:flex-row items-center justify-center h-screen my-20 gap-8 text-center lg:text-left"
 		>
 			<h1 class="text-6xl font-bold">2BeBetter</h1>
-			<img class="max-w-170" src={Personnages} alt="Personnages" />
+			<img
+				class="max-w-170"
+				src="/src/assets/img/acceuil_personnage1.svg"
+				alt=""
+			/>
 		</div>
 
 		<div>
